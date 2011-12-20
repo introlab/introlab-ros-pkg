@@ -1,6 +1,6 @@
 <launch>
-	<node pkg="manyears_ros" type="manyears_ros" name="manyears" output="screen"> <!--launch-prefix="xterm -e gdb -\-args" -->
-		<param name="use_audio_stream" value="true"/>
+	<node pkg="manyears_ros" type="manyears_ros" name="manyears_file" output="screen"> <!--launch-prefix="xterm -e gdb -\-args" -->
+		<param name="use_audio_stream" value="false"/>
 		<param name="raw_file" value="$(find manyears_ros)/data/sample.raw" />
 		<param name="config_file" value="$(find manyears_ros)/data/small_cube.mes" />
 		<param name="enable_separation" value="true" />
