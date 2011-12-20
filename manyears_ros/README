@@ -1,1 +1,17 @@
-Insert documentation here.
+AUTHORS
+
+* François Grondin
+* Vincent Rousseau
+* François Ferland
+* Dominic Létourneau
+
+ROS Interface to IntRoLab's ManyEars audio sound source localization, tracking and separtion algorithm.
+
+More information on ManyEars can be found here:
+
+http://manyears.sourceforge.net
+
+
+USAGE
+
+To be documented...
