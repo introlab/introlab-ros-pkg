@@ -1,0 +1,7 @@
+<launch>
+	<group ns="manyears">
+		<node pkg="tf" type="static_transform_publisher" name="micro_center_link_tf"
+			args="2.13 -1.52 0.85 0 0 0 base_link micro_center_link 10" />
+		<node name="sound_pose" pkg="manyears_ros" type="position_exploitation"/>
+	</group>
+</launch>
