@@ -1,6 +1,4 @@
 <launch>
-	<group ns="manyears">
 		<node name="savestream" pkg="manyears_ros" type="manyears_savestream" output="screen" />
 			<param name="topic" type="string" value="sources_info" />
-	</group>
 </launch>
