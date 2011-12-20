@@ -1,0 +1,17 @@
+<package>
+<description brief="manyears">
+ManyEars IntRoLab package.
+</description>
+<author>Vincent R</author>
+<license>BSD</license>
+<review status="unreviewed" notes=""/>
+<depend package="roscpp"/>
+<depend package="std_msgs"/>
+<depend package="geometry_msgs"/>
+<depend package="tf"/>
+<!--depend package="topic_filters_manager"/-->
+<depend package="manyears"/>
+<export>
+<cpp cflags="-I${prefix}/include -I${prefix}/msg/cpp -I${prefix}/srv/cpp" lflags="-L${prefix}/lib"/>
+</export>
+</package>
