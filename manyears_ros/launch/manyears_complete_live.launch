@@ -1,0 +1,10 @@
+<launch>
+	<group ns="manyears">
+		<remap from="audio_stream" to="stream" />
+		<include file="$(find manyears_ros)/launch/rt_audio.launch" />
+		<remap from="tracked_sources" to="sources_info"/>
+		<include file="$(find manyears_ros)/launch/manyears_live.launch" />
+		<include file="$(find manyears_ros)/launch/manyears_savestream.launch" />
+		<include file="$(find manyears_ros)/launch/manyears_pose.launch" />
+	</group>
+</launch>
