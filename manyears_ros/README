@@ -52,8 +52,10 @@ $> rostopic list
 You can configure RViz to visualize the source pose. Have a look at this screenshot for a sample.
 http://introlab.github.com/introlab-ros-pkg/images/ManyEars-ROS.png
 
+== NEED A SOUND CARD ? ==
+We have made our sound card "Open Source". Please visit :
 
-
+http://eightsoundsusb.sourceforge.net
 
 
 
