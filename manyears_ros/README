@@ -11,11 +11,51 @@ More information on ManyEars can be found here:
 
 http://manyears.sourceforge.net
 
-
 = USAGE =
 
 == CONFIGURATION ==
 
+0) Make sure your sound card & microphone are working!
+
+1) You must configure your microphone array before starting the system. Use the ManyEars GUI to position your 
+   individual microphones and tune the system. 
+
+   $> rosrun manyears ManyEars
+
+   Once done, save the configuration file for usage with the launch files using the 
+   "Parameters->Save the parameters of the system" menu.
+
+2) Modify the launch files to fit your configuration. Edit the file "manyears_ros/launch/manyears_live.launch"
+   and change the line "<param name="config_file" value="$(find manyears_ros)/data/small_cube.mes" />" with your 
+   saved configuration at step 1).
+
+3) Modify the pose of the array according to /base_link. If you want the source to be positioned properly, 
+   change the position of the micro_center_link in "manyears_ros/launch/manyears_pose.launch".
+
 == STARTING THE SYSTEM ==
 
-To be documented...
+$> roslaunch manyears_ros manyears_complete_live.launch
+
+Separated sources will be stored in the /tmp directory in the WAV format.
+
+== ROS TOPICS AVAILABLE ==
+$> rostopic list
+
+/manyears/source_pose    --->Sources positions (using TF)
+/manyears/sources_info   --->Sources informations (relative to array geometry, separated information 4800Hz, Normalized float[-1,1])
+/manyears/stream         --->Audio stream from the sound card, 48000Hz, 16 bits, LE. 
+/rosout
+/rosout_agg
+/tf
+
+== Visualization with RViz ==
+You can configure RViz to visualize the source pose. Have a look at this screenshot for a sample.
+http://introlab.github.com/introlab-ros-pkg/images/ManyEars-ROS.png
+
+
+
+
+
+
+
+
