@@ -42,7 +42,7 @@ Separated sources will be stored in the /tmp directory in the WAV format.
 $> rostopic list
 
 /manyears/source_pose    --->Sources positions (using TF)
-/manyears/sources_info   --->Sources informations (relative to array geometry, separated information 4800Hz, Normalized float[-1,1])
+/manyears/sources_info   --->Sources informations (ids, positions, separated information 48000Hz, normalized floats[-1,1])
 /manyears/stream         --->Audio stream from the sound card, 48000Hz, 16 bits, LE. 
 /rosout
 /rosout_agg
