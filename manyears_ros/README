@@ -48,7 +48,7 @@ $> rostopic list
 /rosout_agg
 /tf
 
-== VISUZLISATION OF SOURCES POSES WITH RVIZ ==
+== VISUALISATION OF SOURCES POSES WITH RVIZ ==
 You can configure RViz to visualize the source pose. Have a look at this screenshot for a sample.
 http://introlab.github.com/introlab-ros-pkg/images/ManyEars-ROS.png
 
