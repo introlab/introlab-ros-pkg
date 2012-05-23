@@ -74,10 +74,11 @@ namespace rt_audio_node
 				char buffer[80];
 				time(&rawtime);
 				timeinfo = localtime(&rawtime);
-				strftime(buffer, 80, "/data/raw/%Y-%m-%d_%H-%M-%S.raw", timeinfo);
+				strftime(buffer, 80, "manyears_rtaudio_%Y-%m-%d_%H-%M-%S.raw", timeinfo);
 
 				//std::string save_file_path = ros::package::getPath("manyears_ros") + "/data/test_capture_raw_audio.raw";
-				std::string save_file_path = ros::package::getPath("manyears_ros") + buffer;
+				//std::string save_file_path = ros::package::getPath("manyears_ros") + buffer;
+				std::string save_file_path = std::string("./") + buffer;
 				//output_file_ = fopen("data/test_capture_audio.raw","wb");
 				output_file_ = fopen(save_file_path.c_str(),"wb");
 				if(output_file_ == NULL)

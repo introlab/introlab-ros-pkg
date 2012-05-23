@@ -53,6 +53,13 @@ namespace manyears_node{
             local_nh_.param("config_file", config_file, std::string("../data/rect_cube.mes"));
             std::string raw_file;
             local_nh_.param("raw_file", raw_file, std::string("../data/one_source.raw"));
+            local_nh_.param("frame_id", frame_id_, std::string(manyears_global::microphones_frame_s));
+            local_nh_.param("instant_time", instant_time_, false);
+
+            if (instant_time_)
+                ROS_INFO("Using instantaneous system time for tracked sources.");
+            else
+                ROS_INFO("Using estimated time from audio stream for tracked sources.");
 
             //Separation enable
             local_nh_.param("enable_separation", enable_separation_, false);
@@ -183,15 +190,23 @@ namespace manyears_node{
             manyears_ros::ManyEarsTrackedAudioSource tracked_source_msg;
             //Fill the message header
             //Calculate the estimated time when the trame was catch by the microphones
-            tracked_source_msg.header.stamp = ros_init_time_ + ros::Duration(((float)manyears_global::samples_per_frame_s/manyears_global::sample_rate_s)*frame_number_);
+            
+            tracked_source_msg.header.stamp = getTimeStamp();
             //tracked_source_msg.header.stamp = ros_init_time_ + ros::Duration((GLOBAL_FRAMESIZE*GLOBAL_OVERLAP/GLOBAL_FS)*frame_number_);
-            tracked_source_msg.header.frame_id = manyears_global::microphones_frame_s;
+            tracked_source_msg.header.frame_id = frame_id_;
 
 
             pub_.publish(tracked_source_msg);
 
         }
 
+        ros::Time getTimeStamp()
+        {
+            if (instant_time_)
+                return ros::Time::now();
+            else
+                return ros_init_time_ + ros::Duration(((float)manyears_global::samples_per_frame_s/manyears_global::sample_rate_s)*frame_number_);
+        }
 
         bool fill_buffer_data_with_raw_file()
         {
@@ -279,9 +294,9 @@ namespace manyears_node{
             manyears_ros::ManyEarsTrackedAudioSource tracked_source_msg;
             //Fill the message header
             //Calculate the estimated time when the trame was catch by the microphones
-            tracked_source_msg.header.stamp = ros_init_time_ + ros::Duration(((float)manyears_global::samples_per_frame_s/manyears_global::sample_rate_s)*frame_number_);
+            tracked_source_msg.header.stamp = getTimeStamp();
             //tracked_source_msg.header.stamp = ros_init_time_ + ros::Duration((GLOBAL_FRAMESIZE*GLOBAL_OVERLAP/GLOBAL_FS)*frame_number_);
-            tracked_source_msg.header.frame_id = manyears_global::microphones_frame_s;
+            tracked_source_msg.header.frame_id = frame_id_;
 
 
             //Output to file
@@ -368,7 +383,8 @@ namespace manyears_node{
                 pub_.publish(tracked_source_msg);
             //}
 
-            ros::spinOnce();
+            // ??????
+            //ros::spinOnce();
 
             //next frame
             frame_number_++;
@@ -457,7 +473,6 @@ namespace manyears_node{
                            parametersStruct->P_GEO_MICS_MIC5_Z,
                            parametersStruct->P_GEO_MICS_MIC5_GAIN
                            );
-        std::string frame_id_;
 
             // Add microphone 6...
             microphonesAdd(myMicrophones,
@@ -676,6 +691,8 @@ namespace manyears_node{
         bool use_audio_stream_;
         bool is_audio_saved_;
         bool enable_separation_;
+        std::string frame_id_;
+        bool instant_time_;
 
         //Manyears variables
         int frame_number_;
