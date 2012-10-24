@@ -154,7 +154,7 @@ namespace manyears_savestream_node
                 }
 
                 //Append data at the end of the stream
-                for (int j = 0; j < sources->tracked_sources[i].separation_data.size(); j++)
+                for (unsigned int j = 0; j < sources->tracked_sources[i].separation_data.size(); j++)
                 {
                     streamData_[id].push_back(sources->tracked_sources[i].separation_data[j]);
                 }
