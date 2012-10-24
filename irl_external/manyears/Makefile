@@ -1,7 +1,7 @@
 all: installed
 
 SVN_DIR = build/manyears-svn
-SVN_URL = https://manyears.svn.sourceforge.net/svnroot/manyears/trunk/manyears-C
+SVN_URL = http://svn.code.sf.net/p/manyears/code/trunk/manyears-C
 include $(shell rospack find mk)/svn_checkout.mk
 
 installed: wiped $(SVN_DIR)
