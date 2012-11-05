@@ -1,0 +1,6 @@
+qtmultimedia:
+  ubuntu: 
+    precise: 
+      apt:
+        packages: [libqt4-dev libqtmultimediakit1]
+
