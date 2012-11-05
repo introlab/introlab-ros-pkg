@@ -2,5 +2,5 @@ qtmultimedia:
   ubuntu: 
     precise: 
       apt:
-        packages: [libqt4-dev libqtmultimediakit1]
+        packages: [libqt4-dev qtmobility-dev]
 
