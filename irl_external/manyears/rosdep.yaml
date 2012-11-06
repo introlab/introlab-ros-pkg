@@ -1,6 +1,0 @@
-qtmultimedia:
-  ubuntu: 
-    precise: 
-      apt:
-        packages: [libqt4-dev qtmobility-dev]
-

@@ -5,7 +5,7 @@ SVN_URL = http://svn.code.sf.net/p/manyears/code/trunk/manyears-C
 include $(shell rospack find mk)/svn_checkout.mk
 
 installed: wiped $(SVN_DIR)
-	cd $(SVN_DIR) && cmake -DCMAKE_INSTALL_PREFIX=${CURDIR} .
+	cd $(SVN_DIR) && cmake -DCMAKE_INSTALL_PREFIX=${CURDIR} -DMANYEARS_GUI_DISABLED:bool=TRUE .
 	cd $(SVN_DIR) && make install
 	touch installed
 
