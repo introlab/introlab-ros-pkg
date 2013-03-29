@@ -10,6 +10,11 @@
   <url>http://ros.org/wiki/manyears_pr2</url>
   <depend package="manyears_ros"/>
   <depend package="roscpp"/>
+  <depend package="tf"/>
+  <depend package="geometry_msgs"/>
+  <depend package="pr2_controllers_msgs"/>
+  <depend package="pr2_head_action"/>
+  <depend package="actionlib"/>
 
 </package>
 
