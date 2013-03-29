@@ -1,36 +1,16 @@
-cmake_minimum_required(VERSION 2.4.6)
-include($ENV{ROS_ROOT}/core/rosbuild/rosbuild.cmake)
-#PROJECT(manyears)
-	
-# Set the build type.  Options are:
-#  Coverage       : w/ debug symbols, w/o optimization, w/ code-coverage
-#  Debug          : w/ debug symbols, w/o optimization
-#  Release        : w/o debug symbols, w/ optimization
-#  RelWithDebInfo : w/ debug symbols, w/ optimization
-#  MinSizeRel     : w/o debug symbols, w/ optimization, stripped binaries
-#set(ROS_BUILD_TYPE RelWithDebInfo)
-	
-rosbuild_init()
-	
-	
-#set the default path for built executables to the "bin" directory
-set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
-#set the default path for built libraries to the "lib" directory
-#set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
-	
-#uncomment if you have defined messages
-rosbuild_genmsg()
+SET(manyears_ros_srcs
+manyears_ros.cpp
+)
+rosbuild_add_executable(manyears_ros ${manyears_ros_srcs})
+target_link_libraries(manyears_ros -lmanyears)
 
-#uncomment if you have defined services
-#rosbuild_gensrv()
+SET(rtaudio_srcs
+rt_audio.cpp
+)
+rosbuild_add_executable(rt_audio ${rtaudio_srcs})
+target_link_libraries(rt_audio -lrtaudio -lasound)
 
-#common commands for building c++ executables and libraries
-#rosbuild_add_library(${PROJECT_NAME} src/example.cpp)
-#target_link_libraries(${PROJECT_NAME} another_library)
-#rosbuild_add_boost_directories()
-#rosbuild_link_boost(${PROJECT_NAME} thread)
-#rosbuild_add_executable(example examples/example.cpp)
-#target_link_libraries(example ${PROJECT_NAME})
-	
-ADD_SUBDIRECTORY(src)
+rosbuild_add_executable(position_exploitation sound_position_exploitation.cpp)
 
+rosbuild_add_executable(manyears_savestream manyears_savestream.cpp)
+target_link_libraries(manyears_savestream -lmanyears)
