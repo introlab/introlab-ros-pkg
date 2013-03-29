@@ -1,9 +1,9 @@
 <launch>
     <!-- Audio input node -->
-    <include file="find $(manyears_ros)/launch/rt_audio.launch"/>
+    <include file="$(find manyears_ros)/launch/rt_audio.launch"/>
 
     <!-- Static transform that will be used as the array's reference frame -->
-    <node name="tf_manyears" pkg="tf" type="static_transform_publiser"
+    <node name="tf_manyears" pkg="tf" type="static_transform_publisher"
         args="0.053 0.000 0.177 0 0 0 1 /torso_lift_link /manyears_link 10">
     </node>
 
@@ -12,7 +12,7 @@
         <param name="use_audio_stream" value="true"/>
         <param name="config_file" value="$(find manyears_pr2)/pr2.mes"/>
         <param name="frame_id" value="/manyears_link"/>
-        <param mane="instant_time" value="true"/>
+        <param name="instant_time" value="true"/>
 
         <remap from="stream" to="audio_stream"/>
     </node>
