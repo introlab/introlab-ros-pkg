@@ -27,6 +27,7 @@
     <!-- Head pointing control -->
     <node name="pr2_demo" pkg="manyears_pr2" type="pr2_demo">
         <param name="point_frame" value="/head_mount_link"/>
+        <remap from="cmd_vel" to="/base_controller/command"/>
     </node>
 
 </launch>

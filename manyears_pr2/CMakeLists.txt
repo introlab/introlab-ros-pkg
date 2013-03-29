@@ -29,5 +29,9 @@ set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
 #rosbuild_add_executable(example examples/example.cpp)
 #target_link_libraries(example ${PROJECT_NAME})
 
-rosbuild_add_executable(pr2_demo src/pr2_demo.cpp)
-
+rosbuild_add_executable(pr2_demo 
+    src/turn_toward.cpp
+    src/pr2_demo.cpp
+)
+# Turns off a warning in actionlib client headers:
+set_target_properties(pr2_demo PROPERTIES COMPILE_FLAGS -Wno-address)
