@@ -1,0 +1,16 @@
+<package>
+  <description brief="manyears_pr2">
+
+     manyears_pr2 - Demo setup for ManyEars on a PR2.
+
+  </description>
+  <author>Francois Ferland, IntRoLab</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/manyears_pr2</url>
+  <depend package="manyears_ros"/>
+  <depend package="roscpp"/>
+
+</package>
+
+
