@@ -37,7 +37,6 @@ namespace manyears_savestream_node
 
         manyears_savestream()
         {
-
             //The topic we are listening to
             nh_.param("topic",topic_,std::string("tracked_sources"));
             sub_ = nh_.subscribe(topic_,1000, &manyears_savestream::audio_source_cb, this);
@@ -154,7 +153,7 @@ namespace manyears_savestream_node
                 }
 
                 //Append data at the end of the stream
-                for (unsigned int j = 0; j < sources->tracked_sources[i].separation_data.size(); j++)
+                for (int j = 0; j < sources->tracked_sources[i].separation_data.size(); j++)
                 {
                     streamData_[id].push_back(sources->tracked_sources[i].separation_data[j]);
                 }

@@ -5,6 +5,8 @@
 #include <cstring>
 #include <vector>
 #include <string>
+#include <boost/algorithm/string.hpp>
+
 //ROS includes
 #include <ros/ros.h>
 #include <ros/package.h>
@@ -12,21 +14,44 @@
 #include <manyears_ros/AudioStream.h>
 //#include "topic_filters/filtered_publisher.hpp"
 
+
 namespace rt_audio_node
 {
-	int record( void *outputBuffer, void *inputBuffer, unsigned int nBufferFrames,
-			 double streamTime, RtAudioStreamStatus status, void *userData );
+	//int record( void *outputBuffer, void *inputBuffer, unsigned int nBufferFrames,
+	//		 double streamTime, RtAudioStreamStatus status, void *userData );
 
 	class rt_audio
 	{
 	public:
 
 		rt_audio(ros::NodeHandle n): local_nh_("~"),
-			pub_(n.advertise<manyears_ros::AudioStream>("audio_stream",100)),
+			pub_( n.advertise<manyears_ros::AudioStream>("audio_stream",100) ),
 			frame_number_(0)
 		{
-			//Adertise ROS msg of audio stream
+			// Advertise ROS msg of audio stream
 			local_nh_.param("save_raw_file",save_raw_file_, false);
+
+            // Microphones count.
+            int nb_mic;
+            local_nh_.param("nb_microphones", nb_mic, 
+	    		manyears_global::nb_microphones_s);
+            nb_microphones_ = nb_mic; // Signed/unsigned conversion.
+
+	    // Sample rate.
+            int sr;
+            local_nh_.param("sample_rate", sr, 
+	    		manyears_global::sample_rate_s);
+            sample_rate_ = sr; // Signed/unsigned conversion.
+	   
+	    // Samples per frame.
+            int spf;
+            local_nh_.param("samples_per_frame", spf, 
+	    		manyears_global::samples_per_frame_s);
+            samples_per_frame_ = spf; // Signed/unsigned conversion.
+            
+	    // Card to use (examples : "USB" or "Intel").
+	    local_nh_.param("card_name", card_name_hint_, std::string(""));
+
 			//Init
 			rtaudio_ = new RtAudio();
 			if ( rtaudio_->getDeviceCount() < 1 ) {
@@ -46,9 +71,14 @@ namespace rt_audio_node
 				info = rtaudio_->getDeviceInfo(indexDevice);
 				if ( info.probed == true )
 				{
-                                        ROS_INFO_STREAM(" card "<< indexDevice << info.name.c_str()<<" Inputs : "<<info.inputChannels);
-					//Take the device with 8 output channels
-                                        if( info.inputChannels >= 8)
+                                        ROS_INFO_STREAM( "Card " << indexDevice << " " << info.name.c_str() << 
+							". Inputs : " << info.inputChannels );
+					
+					// Take the device with enough channels AND with the good name hint
+                                        if(( info.inputChannels >= nb_microphones_)
+						&& ( std::count(info.sampleRates.begin(), // If sample is supported
+							info.sampleRates.end(), sample_rate_) > 0 )
+						&& boost::contains( info.name, card_name_hint_ ) )
                                         {
 						selected_device = indexDevice;
                                                 break;
@@ -59,11 +89,11 @@ namespace rt_audio_node
 			RtAudio::StreamParameters iparameters;
 			//Take the last device for the input (normally the PCI sound card)
 			iparameters.deviceId = selected_device;
-			iparameters.nChannels = manyears_global::nb_microphones_s;
+			iparameters.nChannels = nb_microphones_;
 			iparameters.firstChannel = 0;
 			RtAudio::StreamOptions audioOptions;
-			int sampleRate = manyears_global::sample_rate_s;
-			unsigned int bufferFrames = manyears_global::samples_per_frame_s; // 512 sample frames is the buffer hope size for manyears
+			int sampleRate = sample_rate_;
+			unsigned int bufferFrames = samples_per_frame_; // 512 sample frames is the buffer hope size for manyears
 
 			//Write into file to sav audio stream
 			if(save_raw_file_)
@@ -90,7 +120,7 @@ namespace rt_audio_node
 				printf("deviceId : %d, nbChannels : %d, sample rate : %d, bufferSize : %d"
 					, iparameters.deviceId, iparameters.nChannels, sampleRate, bufferFrames);
 
-				rtaudio_->openStream( NULL, &iparameters, RTAUDIO_SINT16, sampleRate, &bufferFrames, &rt_audio_node::record, this, &audioOptions);
+				rtaudio_->openStream( NULL, &iparameters, RTAUDIO_SINT16, sampleRate, &bufferFrames, &rt_audio::record, this, &audioOptions);
 				ROS_INFO("Open done");
 				rtaudio_->startStream();
 			}
@@ -120,16 +150,9 @@ namespace rt_audio_node
 				fclose(output_file_);
 		}
 
-		void publish_msg(manyears_ros::AudioStream& msg_to_send)
+		void write_in_file(const char* data, size_t size)
 		{
-			msg_to_send.frame_number = frame_number_;
-			pub_.publish(msg_to_send);
-			frame_number_++;
-		}
-
-		void write_in_file(short * data)
-		{
-			fwrite(data, sizeof(short), 1, output_file_);
+			fwrite(data, sizeof(char), size, output_file_);
 		}
 
 		bool get_save_raw_file()
@@ -138,6 +161,32 @@ namespace rt_audio_node
 		}
 
 	private:
+        static int record( void *outputBuffer, void *inputBuffer, unsigned int nBufferFrames,
+                 double streamTime, RtAudioStreamStatus status, void *userData )
+        {
+            if ( status )
+                std::cout << "Stream overflow detected!" << std::endl;
+
+            rt_audio_node::rt_audio* rtaudio_ptr = static_cast<rt_audio_node::rt_audio*>(userData);
+
+            size_t size = nBufferFrames * rtaudio_ptr->nb_microphones_ * sizeof(int16_t);
+
+            manyears_ros::AudioStream audio_stream_msg;
+            audio_stream_msg.encoding = manyears_ros::AudioStream::SINT_16_PCM;
+            audio_stream_msg.is_bigendian = false;
+            audio_stream_msg.channels = rtaudio_ptr->nb_microphones_;
+            audio_stream_msg.sample_rate = rtaudio_ptr->sample_rate_;
+            audio_stream_msg.data.assign(
+                (uint8_t *) inputBuffer,
+                (uint8_t *) inputBuffer + ( size )); 
+
+            rtaudio_ptr->pub_.publish(audio_stream_msg);
+
+            if (rtaudio_ptr->save_raw_file_)
+                rtaudio_ptr->write_in_file((const char*)inputBuffer, size);
+            return 0;
+        }
+
 		//ROS variables
 		ros::NodeHandle local_nh_;
 		ros::Publisher pub_;
@@ -148,30 +197,13 @@ namespace rt_audio_node
 		
 		bool save_raw_file_;
 		FILE* output_file_;
+        	
+		unsigned int nb_microphones_;
+        	unsigned int sample_rate_;
+        	unsigned int samples_per_frame_;
+		std::string card_name_hint_;
 	};
 
-	int record( void *outputBuffer, void *inputBuffer, unsigned int nBufferFrames,
-			 double streamTime, RtAudioStreamStatus status, void *userData )
-	{
-		if ( status )
-			std::cout << "Stream overflow detected!" << std::endl;
-
-		rt_audio_node::rt_audio* rtaudio_ptr = static_cast<rt_audio_node::rt_audio*>(userData);
-		// Do something with the data in the "inputBuffer" buffer.
-		manyears_ros::AudioStream audio_stream_msg;
-		audio_stream_msg.stream_buffer.resize(nBufferFrames*manyears_global::nb_microphones_s);
-
-		signed short *  buffer_to_send = (signed short *)inputBuffer;
-		for(uint i=0; i< nBufferFrames*manyears_global::nb_microphones_s; i++)
-		{
-			audio_stream_msg.stream_buffer[i] = (short) *(buffer_to_send++);
-			if(rtaudio_ptr->get_save_raw_file() == true)
-				rtaudio_ptr->write_in_file(&audio_stream_msg.stream_buffer[i]);
-		}
-		rtaudio_ptr->publish_msg(audio_stream_msg);
-
-		return 0;
-	}
 
 }
 

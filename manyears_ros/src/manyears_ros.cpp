@@ -78,7 +78,7 @@ namespace manyears_node{
 
             }
             else
-                sub_ = n.subscribe("stream", 100, &many_ears::audio_stream_cb, this);
+                sub_ = n.subscribe("manyears_stream", 100, &many_ears::audio_stream_cb, this);
 
             //Write into file to sav audio stream
             std::string save_audio_file;
@@ -367,8 +367,8 @@ namespace manyears_node{
 
 
 
-                    //Disappeared in new version of manyearslib ?
-                    //tracked_source.source_energy = potentialSourcesGetEnergy(libraryContext_.myPotentialSources, source_index);
+                    tracked_source.source_probability = 
+                        potentialSourcesGetProbability(libraryContext_.myPotentialSources, source_index);
                     //Add it to the tracked sources
                     tracked_source_msg.tracked_sources.push_back(tracked_source);
                 }
@@ -673,12 +673,19 @@ namespace manyears_node{
 
         }
 
-        void audio_stream_cb(const manyears_ros::AudioStreamConstPtr& data_in){
+        void audio_stream_cb(const manyears_ros::AudioStreamConstPtr& data_in)
+        {
+            assert(data_in->encoding == manyears_ros::AudioStream::SINT_16_PCM);
+            assert(data_in->is_bigendian == false);
+            assert(data_in->channels == manyears_global::nb_microphones_s);
+            assert(data_in->sample_rate == manyears_global::sample_rate_s);
+            assert(data_in->data.size() == manyears_global::raw_buffer_size_s * sizeof(int16_t));
 
-            for (uint i=0; i<data_in->stream_buffer.size() && i<manyears_global::raw_buffer_size_s; i++)
-            {
-                audio_raw_data_[i] = data_in->stream_buffer[i];
-            }
+            memcpy(
+              (uint8_t *) audio_raw_data_,
+              &data_in->data[0],
+              data_in->data.size());
+
             processing_buffer();
         }
 
