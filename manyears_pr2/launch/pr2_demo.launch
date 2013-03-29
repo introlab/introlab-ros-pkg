@@ -24,5 +24,10 @@
         <param name="ignore_back" value="true"/>
     </node>
 
+    <!-- Head pointing control -->
+    <node name="pr2_demo" pkg="manyears_pr2" type="pr2_demo">
+        <param name="point_frame" value="/head_mount_link"/>
+    </node>
+
 </launch>
 
