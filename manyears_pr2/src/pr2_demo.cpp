@@ -5,6 +5,7 @@
 #include <geometry_msgs/PoseStamped.h>
 #include <geometry_msgs/Twist.h>
 #include <tf/tf.h>
+#include <tf/transform_listener.h>
 #include <actionlib/client/simple_action_client.h>
 #include <pr2_controllers_msgs/PointHeadAction.h>
 #include "turn_toward.hpp"
@@ -21,12 +22,16 @@ namespace manyears_pr2
     /// Output topics:
     ///
     ///  - cmd_vel: Base rotation to face the latest sound source.
+    ///  - ~last_pose: For diagnostic purposes, output the pose transformed in
+    ///    the fixed frame.
     ///
     /// Parameters:
     /// 
     ///  - pointing_frame: Name of the pointing frame for PointHeadAction.
     ///    Will always orient X toward the detected source.
     ///    Default: "head_tilt_link".
+    ///  - fixed_frame: Used to transform detected poses for base control.
+    ///    Default: "odom".
     ///  - min_duration: Minimum duration to get to a given pose.
     ///    Default: 0.5 s.
     ///  - max_vel: Maximum velocity in rad/s.
@@ -39,18 +44,21 @@ namespace manyears_pr2
     class PR2Demo
     {
     public:
-        PR2Demo(ros::NodeHandle& n, ros::NodeHandle& np)
+        PR2Demo(ros::NodeHandle& n, ros::NodeHandle& np):
+            last_update_(0)
         {
             double p; // Used for period parameters.
 
             np.param("pointing_frame", pointing_frame_, 
                 std::string("head_tilt_link"));
+            np.param("fixed_frame", fixed_frame_,
+                std::string("odom"));
             np.param("min_duration", p, 0.5);
             min_duration_ = ros::Duration(p);
 
             np.param("max_vel", max_vel_, 1.0);
 
-            np.param("timeout", p, 2.0);
+            np.param("timeout", p, 5.0);
             timeout_ = ros::Duration(p);
 
             np.param("period", p, 0.1);
@@ -59,6 +67,8 @@ namespace manyears_pr2
             sub_source_pose_ = n.subscribe("source_pose", 1, 
                 &PR2Demo::poseCB, this);
             pub_cmd_vel_ = n.advertise<geometry_msgs::Twist>("cmd_vel", 1);
+            pub_last_pose_ = np.advertise<geometry_msgs::PoseStamped>(
+                "last_pose", 1);
 
             ph_client_.reset(new PointHeadClient(
                 std::string("/head_traj_controller/point_head_action"), 
@@ -68,37 +78,56 @@ namespace manyears_pr2
                 ROS_INFO("Waiting for the point_head_action server...");
             }
 
-            last_pose_.header.stamp = ros::Time(0);
         }
 
         void poseCB(const geometry_msgs::PoseStamped::ConstPtr& msg)
         {
-            last_pose_ = *msg;
+            // First, transform the pose in a fixed frame and save it.
+            try 
+            {
+                tf_.waitForTransform(fixed_frame_, msg->header.frame_id, 
+                    msg->header.stamp, min_duration_);
+                tf_.transformPose(fixed_frame_, msg->header.stamp, *msg, 
+                    fixed_frame_, last_pose_);
+            } 
+            catch (tf::TransformException e)
+            {
+                ROS_DEBUG_THROTTLE(1.0, "TF Exception: %s", e.what());
+            }
 
-            // First test: just send the incoming sound pose as an action goal
-            // for the head.
-            // No filtering performed.
-            pr2_controllers_msgs::PointHeadGoal goal;
-            goal.target.header.frame_id = msg->header.frame_id;
-            goal.target.point = msg->pose.position;
-            goal.pointing_frame = pointing_frame_;
-            goal.pointing_axis.x = 1.0;
-            goal.pointing_axis.y = 0.0;
-            goal.pointing_axis.z = 0.0;
-
-            goal.min_duration = min_duration_;
-            goal.max_velocity = max_vel_;
-
-            ph_client_->sendGoal(goal);
+            last_update_ = msg->header.stamp;
         }
 
         void timerCB(const ros::TimerEvent&)
         {
-            const ros::Time& pt = last_pose_.header.stamp;
-            if (pt.isZero())
+            if (last_update_.isZero())
                 return;
-            if ((ros::Time::now() - pt) > timeout_)
+            if ((ros::Time::now() - last_update_) > timeout_)
                 return;
+
+            // Force the last pose time to the latest common time between the
+            // fixed frame and the source frame.
+            tf_.getLatestCommonTime(pointing_frame_, fixed_frame_, 
+                last_pose_.header.stamp, NULL);
+
+
+            // Just send the last valid sound pose as an action goal
+            // for the head.
+            // No filtering performed.
+            pr2_controllers_msgs::PointHeadGoal goal;
+            goal.target.header.frame_id = last_pose_.header.frame_id;
+            goal.target.point = last_pose_.pose.position;
+            goal.pointing_frame = pointing_frame_;
+            goal.pointing_axis.x = 1.0;
+            goal.pointing_axis.y = 0.0;
+            goal.pointing_axis.z = 0.0;
+            goal.min_duration = min_duration_;
+            goal.max_velocity = max_vel_;
+            ph_client_->sendGoal(goal);
+
+            // Send velocity commmands (and diagnostic output) with turn_toward.
+            if (pub_last_pose_.getNumSubscribers())
+                pub_last_pose_.publish(last_pose_);
 
             geometry_msgs::Twist msg;
             if (turn_.calcVel(last_pose_, msg))
@@ -110,18 +139,23 @@ namespace manyears_pr2
 
         ros::Subscriber sub_source_pose_;
         ros::Publisher pub_cmd_vel_;
+        ros::Publisher pub_last_pose_;
+
         ros::Timer timer_;
+        tf::TransformListener tf_;
 
         typedef actionlib::SimpleActionClient<
             pr2_controllers_msgs::PointHeadAction> PointHeadClient;
         boost::scoped_ptr<PointHeadClient> ph_client_;
 
         std::string pointing_frame_;
+        std::string fixed_frame_;
         ros::Duration min_duration_;
         double max_vel_;
         ros::Duration timeout_;
 
         geometry_msgs::PoseStamped last_pose_;
+        ros::Time last_update_;
     };
 
 }

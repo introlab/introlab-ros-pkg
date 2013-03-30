@@ -27,7 +27,10 @@
     <!-- Head pointing control -->
     <node name="pr2_demo" pkg="manyears_pr2" type="pr2_demo">
         <param name="point_frame" value="/head_mount_link"/>
+        <param name="fixed_frame" value="/odom_combined"/>
         <remap from="cmd_vel" to="/base_controller/command"/>
+        <param name="turn_k_theta" value="0.7"/>
+        <param name="turn_max_vel" value="0.6"/>
     </node>
 
 </launch>
