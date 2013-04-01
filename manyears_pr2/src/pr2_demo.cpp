@@ -100,10 +100,17 @@ namespace manyears_pr2
 
         void timerCB(const ros::TimerEvent&)
         {
-            if (last_update_.isZero())
+            geometry_zeros::Twist zero;
+            zero.linear.x = zero.linear.y = zero.angular.z = 0.0;
+
+            if (last_update_.isZero() || 
+                ((ros::Time::now() - last_update_) > timeout_))
+            {
+                // Invalid / obsolete goal, publish a zero twist to avoid
+                // applying older commands indefinitely.
+                pub_cmd_vel_.publish(zero);
                 return;
-            if ((ros::Time::now() - last_update_) > timeout_)
-                return;
+            }
 
             // Force the last pose time to the latest common time between the
             // fixed frame and the source frame.
@@ -129,9 +136,13 @@ namespace manyears_pr2
             if (pub_last_pose_.getNumSubscribers())
                 pub_last_pose_.publish(last_pose_);
 
-            geometry_msgs::Twist msg;
-            if (turn_.calcVel(last_pose_, msg))
-                pub_cmd_vel_.publish(msg);
+            geometry_msgs::Twist cmd;
+            // calcVel returns true only if a valid command could be obtained.
+            // Send zero otherwise.
+            if (turn_.calcVel(last_pose_, cmd))
+                pub_cmd_vel_.publish(cmd);
+            else
+                pub_cmd_vel_.publish(zero);
         }
 
     private:
