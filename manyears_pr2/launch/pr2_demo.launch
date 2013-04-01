@@ -1,6 +1,6 @@
 <launch>
-    <!-- Audio input node -->
-    <include file="$(find manyears_ros)/launch/rt_audio.launch"/>
+    <!-- Audio input node, saves the stream in ~/.ros -->
+    <include file="$(find manyears_ros)/launch/rt_audio_save_raw.launch"/>
 
     <!-- Static transform that will be used as the array's reference frame -->
     <node name="tf_manyears" pkg="tf" type="static_transform_publisher"

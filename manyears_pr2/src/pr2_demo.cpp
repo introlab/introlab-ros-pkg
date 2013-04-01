@@ -100,7 +100,7 @@ namespace manyears_pr2
 
         void timerCB(const ros::TimerEvent&)
         {
-            geometry_zeros::Twist zero;
+            geometry_msgs::Twist zero;
             zero.linear.x = zero.linear.y = zero.angular.z = 0.0;
 
             if (last_update_.isZero() || 
