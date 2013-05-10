@@ -43,11 +43,10 @@ namespace x264_image_transport {
 	
 	  void configCb(Config& config, uint32_t level);
 	
-
+      void initialize_codec(int width,int height,int fps) const;
 	
 	  // Some data is preserved across calls to publish(), but from the user's perspective publish() is
 	  // "logically const"
-	  //mutable sensor_msgs::CvBridge img_bridge_;
 	  mutable std::vector<x264_image_transport::x264Packet> stream_header_;
 	  
 	  //x264 encoder stuff
@@ -55,6 +54,10 @@ namespace x264_image_transport {
 	  mutable x264_t *x264_encoder;
 	  mutable x264_picture_t x264_pic_in;
 	  mutable x264_picture_t x264_pic_out;
+	  
+	  //initialized flag
+	  mutable bool initialized_;
+	  
 };
 
 } //namespace x264_image_transport

@@ -37,7 +37,7 @@ int main(int argc, char** argv)
 	{
 	  	msg->data[i] = rand();
 	}
-    ROS_INFO("Publishing image");
+    //ROS_INFO("Publishing image");
     pub.publish(msg);
     ros::spinOnce();
     loop_rate.sleep();

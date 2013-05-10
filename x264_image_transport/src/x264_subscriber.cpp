@@ -134,7 +134,7 @@ void x264Subscriber::subscribeImpl(ros::NodeHandle &nh, const std::string &base_
 void x264Subscriber::configCb(Config& config, uint32_t level)
 {
     //TODO HANDLE CONFIGURATION
-    ROS_ERROR("x264Subscriber::configCb not implemented yet");
+    ROS_INFO("x264Subscriber::configCb not implemented yet");
 }
 
 
