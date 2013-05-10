@@ -116,6 +116,10 @@ namespace x264_image_transport {
 		      initialize_codec(width,height,fps);  
 		}
 
+        //Something went wrong
+        if (!initialized_)
+            return;
+
 		
 		//Let's convert the image to something x264 understands		
    		//Get scaling context...
