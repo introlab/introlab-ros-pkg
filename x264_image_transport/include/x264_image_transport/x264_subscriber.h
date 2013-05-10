@@ -1,7 +1,7 @@
 #include <image_transport/simple_subscriber_plugin.h>
 #include <dynamic_reconfigure/server.h>
-#include <x264_transport/x264SubscriberConfig.h>
-#include <x264_transport/x264Packet.h>
+#include <x264_image_transport/x264SubscriberConfig.h>
+#include <x264_image_transport/x264Packet.h>
 
 extern "C"
 {
@@ -12,7 +12,7 @@ extern "C"
 
 namespace x264_image_transport {
 
-	class x264Subscriber : public image_transport::SimpleSubscriberPlugin<x264_transport::x264Packet>
+	class x264Subscriber : public image_transport::SimpleSubscriberPlugin<x264_image_transport::x264Packet>
 	{
 	public:
 	  x264Subscriber();
@@ -28,10 +28,10 @@ namespace x264_image_transport {
 	                             const image_transport::TransportHints &transport_hints);
 	  
 	  // The function that does the actual decompression and calls a user supplied callback with the resulting image
-	  virtual void internalCallback(const x264_transport::x264PacketConstPtr &msg, const Callback& user_cb);
+	  virtual void internalCallback(const x264_image_transport::x264PacketConstPtr &msg, const Callback& user_cb);
 	
 	  // Dynamic reconfigure support
-	  typedef x264_transport::x264SubscriberConfig Config;
+	  typedef x264_image_transport::x264SubscriberConfig Config;
 	  typedef dynamic_reconfigure::Server<Config> ReconfigureServer;
 	  boost::shared_ptr<ReconfigureServer> reconfigure_server_;
 	
@@ -58,4 +58,4 @@ namespace x264_image_transport {
 
 	};
 
-} //namespace x264_transport
+} //namespace x264_image_transport

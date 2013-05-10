@@ -1,16 +1,12 @@
-#include "x264_transport/x264_subscriber.h"
-#include <cv_bridge/CvBridge.h>
+#include "x264_image_transport/x264_subscriber.h"
 #include <sensor_msgs/image_encodings.h>
-#include <opencv/cvwimage.h>
-#include <opencv/highgui.h>
 #include <boost/scoped_array.hpp>
 #include <vector>
 
 
-
 //using namespace std;
 
-namespace x264_transport {
+namespace x264_image_transport {
 
 x264Subscriber::x264Subscriber()
     :   latest_image_(new sensor_msgs::Image())
@@ -126,7 +122,7 @@ void x264Subscriber::subscribeImpl(ros::NodeHandle &nh, const std::string &base_
 
     // queue_size doesn't account for the 3 header packets, so we correct (with a little extra) here.
     queue_size += 4;
-    typedef image_transport::SimpleSubscriberPlugin<x264_transport::x264Packet> Base;
+    typedef image_transport::SimpleSubscriberPlugin<x264_image_transport::x264Packet> Base;
     Base::subscribeImpl(nh, base_topic, queue_size, callback, tracked_object, transport_hints);
 
     // Set up reconfigure server for this topic
@@ -160,7 +156,7 @@ void x264Subscriber::convert_rgb(AVCodecContext *codec, AVFrame *inFrame, AVFram
                           outFrame->data, outFrame->linesize);
 }
 
-void x264Subscriber::internalCallback(const x264_transport::x264PacketConstPtr& message, const Callback& callback)
+void x264Subscriber::internalCallback(const x264_image_transport::x264PacketConstPtr& message, const Callback& callback)
 {
     ROS_INFO("x264Subscriber::internalCallback");
 
@@ -207,4 +203,4 @@ void x264Subscriber::internalCallback(const x264_transport::x264PacketConstPtr& 
 
 
 
-} //namespace x264_transport
+} //namespace x264_image_transport

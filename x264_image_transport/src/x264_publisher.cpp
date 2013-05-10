@@ -1,15 +1,15 @@
-#include "x264_transport/x264_publisher.h"
+#include "x264_image_transport/x264_publisher.h"
 #include <sensor_msgs/image_encodings.h>
 #include <vector>
 #include <cstdio> //for memcpy
-#include <cv_bridge/cv_bridge.h>
+
 
 extern "C"
 {
 	#include <libswscale/swscale.h>
 }
 
-namespace x264_transport {
+namespace x264_image_transport {
 
 	namespace enc = sensor_msgs::image_encodings;
 	
@@ -80,7 +80,7 @@ namespace x264_transport {
 	  // Latching doesn't make a lot of sense with this transport. Could try to save the last keyframe,
 	  // but do you then send all following delta frames too?
 	  latch = false;
-	  typedef image_transport::SimplePublisherPlugin<x264_transport::x264Packet> Base;
+	  typedef image_transport::SimplePublisherPlugin<x264_image_transport::x264Packet> Base;
 	  Base::advertiseImpl(nh, base_topic, queue_size, user_connect_cb, user_disconnect_cb, tracked_object, latch);
 	
 	  // Set up reconfigure server for this topic
@@ -110,11 +110,10 @@ namespace x264_transport {
 	{
 		//ROS_INFO("x264Publisher::publish");
 		
-		cv_bridge::CvImageConstPtr cv_ptr;
+		//cv_bridge::CvImageConstPtr cv_ptr;
 		
 		//Let's convert the image to something x264
-		try
-		{	   		
+	   		
 	   		int width = 1024;
 	   		int height = 768;
 	   		int srcstride = width * 3;
@@ -177,7 +176,7 @@ int sws_scale(struct SwsContext *context, const uint8_t* const srcSlice[], const
 					//ROS_INFO("NAL : %i, size: %i",i,nals[i].i_payload);
 					
 			    	// OK, Let's send our packets...
-			    	x264_transport::x264Packet packet;
+			    	x264_image_transport::x264Packet packet;
 			    	
 			    	packet.data.resize(nals[i].i_payload);
 			    	
@@ -192,16 +191,12 @@ int sws_scale(struct SwsContext *context, const uint8_t* const srcSlice[], const
 			}
 	   		
 	   			   		
-		}
-	  	catch (cv_bridge::Exception& e)
-	  	{
-	  		ROS_ERROR("cv_bridge exception: %s", e.what());
-			return;
-	  	}	
+		
+	
 	  
 	    
 	    
 	}
 
 
-} //namespace x264_transport
+} //namespace x264_image_transport

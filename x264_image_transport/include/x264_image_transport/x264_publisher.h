@@ -1,10 +1,7 @@
 #include <image_transport/simple_publisher_plugin.h>
-#include <opencv/cv.h>
-#include <opencv/cxcore.h>
-#include <cv_bridge/CvBridge.h>
 #include <dynamic_reconfigure/server.h>
-#include <x264_transport/x264PublisherConfig.h>
-#include <x264_transport/x264Packet.h>
+#include <x264_image_transport/x264PublisherConfig.h>
+#include <x264_image_transport/x264Packet.h>
 
 extern "C"
 {
@@ -14,7 +11,7 @@ extern "C"
 
 namespace x264_image_transport {
 
-	class x264Publisher : public image_transport::SimplePublisherPlugin<x264_transport::x264Packet>
+	class x264Publisher : public image_transport::SimplePublisherPlugin<x264_image_transport::x264Packet>
 	{
 	public:
 	  x264Publisher();
@@ -40,7 +37,7 @@ namespace x264_image_transport {
 	                       const PublishFn& publish_fn) const;
 	
 	  // Dynamic reconfigure support
-	  typedef x264_transport::x264PublisherConfig Config;
+	  typedef x264_image_transport::x264PublisherConfig Config;
 	  typedef dynamic_reconfigure::Server<Config> ReconfigureServer;
 	  boost::shared_ptr<ReconfigureServer> reconfigure_server_;
 	
@@ -50,8 +47,8 @@ namespace x264_image_transport {
 	
 	  // Some data is preserved across calls to publish(), but from the user's perspective publish() is
 	  // "logically const"
-	  mutable sensor_msgs::CvBridge img_bridge_;
-	  mutable std::vector<x264_transport::x264Packet> stream_header_;
+	  //mutable sensor_msgs::CvBridge img_bridge_;
+	  mutable std::vector<x264_image_transport::x264Packet> stream_header_;
 	  
 	  //x264 encoder stuff
 	  mutable x264_param_t x264_codec_param;
@@ -60,4 +57,4 @@ namespace x264_image_transport {
 	  mutable x264_picture_t x264_pic_out;
 };
 
-} //namespace x264_transport
+} //namespace x264_image_transport
