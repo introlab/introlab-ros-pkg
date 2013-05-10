@@ -21,14 +21,14 @@ public:
         ROS_INFO("x264TestSubscriber()");
         nh_ = ros::NodeHandle("~");
         it_ = new image_transport::ImageTransport(nh_);
-        nh_.param<std::string>("topic_name", topicName_, "image");
+        nh_.param<std::string>("topic_name", topicName_, "/x264_test_publisher/image");
         sub_ =  it_->subscribe(topicName_, 5, &x264TestSubscriber::imageCallback, this);
     }
 
 
     void imageCallback(const sensor_msgs::ImageConstPtr& msg)
     {
-        ROS_INFO("imageCallback(const sensor_msgs::ImageConstPtr& msg)");
+        ROS_INFO("imageCallback(const sensor_msgs::ImageConstPtr& msg width: %i, height: %i)",msg->width, msg->height);
     }
 
 
