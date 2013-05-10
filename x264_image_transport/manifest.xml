@@ -1,0 +1,21 @@
+<package>
+  <description brief="x264_image_transport">
+
+     x264_image_transport
+
+  </description>
+  <author>Dominic.Letourneau@USherbrooke.ca</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/x264_image_transport</url>
+  <depend package="image_transport"/>
+  <depend package="pluginlib"/>
+  <depend package="dynamic_reconfigure"/>
+
+  <export>
+    <cpp lflags="-Wl,-rpath,${prefix}/lib -L${prefix}/lib -lx264_image_transport -lx264 -lavcodec -lswscale -lavformat" cflags="-I${prefix}/include"/>
+    <image_transport plugin="${prefix}/x264_plugins.xml" />
+  </export>
+</package>
+
+

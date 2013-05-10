@@ -1,0 +1,13 @@
+<library path="lib/libx264_image_transport">
+  <class name="image_transport/x264_pub" type="x264_image_transport::x264Publisher" base_class_type="image_transport::PublisherPlugin">
+    <description>
+      This plugin publishes a video packet stream encoded using x264/ffmpeg.
+    </description>
+  </class>
+
+  <class name="image_transport/x264_sub" type="x264_image_transport::x264Subscriber" base_class_type="image_transport::SubscriberPlugin">
+    <description>
+      This plugin decodes a video packet stream encoded using x264/ffmpeg.
+    </description>
+  </class>
+</library>

@@ -1,0 +1,13 @@
+<launch>
+  <node pkg="x264_transport" type="x264_test_publisher" name="x264_test_publisher" respawn="false" output="screen">
+    <param name="refresh_rate" value="5"/>
+    <param name="topic_name" value="image"/>
+  </node>
+  
+  <node pkg="x264_transport" type="x264_test_subscriber" name="x264_test_subscriber" respawn="false" output="screen">
+    <param name="refresh_rate" value="5"/>
+    <param name="topic_name" value="/x264_test_publisher/image"/>
+    <param name="image_transport" value="x264"/>
+  </node>
+    
+</launch>
