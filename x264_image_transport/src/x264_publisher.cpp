@@ -91,7 +91,7 @@ namespace x264_image_transport {
 		x264_picture_alloc(&x264_pic_in, X264_CSP_I420, width, height);
 		
 		initialized_ = true;
-		ROS_INFO("x264Publisher::initialize_codec(): codec initialized (width: %i, height: %i, fps: %i",width,height,fps);
+		ROS_INFO("x264Publisher::initialize_codec(): codec initialized (width: %i, height: %i, fps: %i)",width,height,fps);
 	}
 	
 	
@@ -138,7 +138,12 @@ namespace x264_image_transport {
 		    	// OK, Let's send our packets...
 		    	x264_image_transport::x264Packet packet;
 		    	
+		    	//Set data
 		    	packet.data.resize(nals[i].i_payload);
+		    	
+		    	//Set width & height
+		    	packet.img_width = width; 
+		    	packet.img_height = height;
 		    	
 		    	//copy NAL data
 		    	memcpy(&packet.data[0],nals[i].p_payload,nals[i].i_payload);
