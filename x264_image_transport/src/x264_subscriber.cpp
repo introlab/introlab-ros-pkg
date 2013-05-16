@@ -222,7 +222,7 @@ namespace x264_image_transport {
         int result = avcodec_decode_video2(m_pCodecCtx, m_pFrame, &frameFinished,&packet);
 
 
-        if(result > 0 && frameFinished > 0)
+        if(result >= 0 && frameFinished > 0)
         {
               //ROS_INFO("Decoding result : %i frameFinished : %i",result,frameFinished);
               
