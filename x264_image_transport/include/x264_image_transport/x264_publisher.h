@@ -5,7 +5,13 @@
 
 extern "C"
 {
-	#include "x264.h"
+	#include "libavcodec/avcodec.h"
+    #include "libavformat/avio.h"
+    #include "libavformat/avformat.h"
+    #include "libswscale/swscale.h"
+    #include "libavutil/opt.h"
+    #include "libavutil/imgutils.h"
+    #include "libavutil/samplefmt.h"
 }
 
 
@@ -49,11 +55,27 @@ namespace x264_image_transport {
 	  // "logically const"
 	  mutable std::vector<x264_image_transport::x264Packet> stream_header_;
 	  
+/*	  
+	  
 	  //x264 encoder stuff
 	  mutable x264_param_t x264_codec_param;
 	  mutable x264_t *x264_encoder;
 	  mutable x264_picture_t x264_pic_in;
 	  mutable x264_picture_t x264_pic_out;
+*/
+
+ 
+
+    /** ENCODER VAR **/
+    mutable AVFormatContext *m_encFmtCtx;
+    mutable AVCodecContext  *m_encCdcCtx;
+    mutable AVFrame *m_encFrame;
+    mutable AVPacket        m_encodedPacket;
+
+
+    /** SOFTWARE SCALE CONTEXT **/
+    mutable SwsContext *sws_ctx;
+
 	  
 	  //initialized flag
 	  mutable bool initialized_;

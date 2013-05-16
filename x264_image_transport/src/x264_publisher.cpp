@@ -15,7 +15,11 @@ namespace x264_image_transport {
 	
 	
 	x264Publisher::x264Publisher()
-	:  x264_encoder(NULL), initialized_(false)
+	: m_encFmtCtx(NULL),
+	  m_encCdcCtx(NULL),
+	  m_encFrame(NULL),
+	  sws_ctx(NULL),
+	  initialized_(false)
 	{
 		
 
@@ -26,11 +30,28 @@ namespace x264_image_transport {
 	{
 		ROS_INFO("x264Publisher::~x264Publisher()");
 		
-		if (initialized_)
-		{
-		    x264_encoder_close(x264_encoder);
-            x264_picture_clean(&x264_pic_in);  
-		}
+
+         if(m_encCdcCtx)
+         {
+             avcodec_close(m_encCdcCtx);
+             m_encCdcCtx = 0;
+         }
+         if(m_encFmtCtx)
+         {
+             avformat_close_input(&m_encFmtCtx);
+             m_encFmtCtx = 0;
+         }
+         if(m_encFrame)
+         {
+             av_free(m_encFrame);
+             m_encFrame = 0;
+         }
+
+         if(sws_ctx)
+         {
+             sws_freeContext(sws_ctx);
+             sws_ctx = 0;
+         }
 	}
 	
 	void x264Publisher::advertiseImpl(ros::NodeHandle &nh, const std::string &base_topic, uint32_t queue_size,
@@ -65,31 +86,87 @@ namespace x264_image_transport {
 	
 	void x264Publisher::initialize_codec(int width, int height, int fps) const
 	{
+	
+	    // must be called before using avcodec lib
+        avcodec_register_all();
+        //Register codecs, devices and formats
+        av_register_all();
+        //Initialize network, this is new from april 2013, it will initialize the RTP
+        avformat_network_init();
+	
+	    //Codec
+	    AVCodec *codec = 0;
+	    
+	    codec = avcodec_find_encoder(CODEC_ID_H264);	    
+	    if (!codec)
+	    {
+	        ROS_ERROR("Unable to find H264 encoder, ffmpeg version too old ?");
+	        return;
+	    }
+	    
+	    //Context
+	    m_encCdcCtx = avcodec_alloc_context3(codec);
+        if (!m_encCdcCtx)
+        {
+           ROS_ERROR("Unable to allocate encoder context");
+           return;
+        }
+	    
+	    
+	    //Setup some parameter
+        /* put sample parameters */
+        m_encCdcCtx->bit_rate = 512000; //Seems a good starting point
+        m_encCdcCtx->qmax = 51; //Allow big degradation
+        /* resolution must be a multiple of two */
+        m_encCdcCtx->width = width;
+        m_encCdcCtx->height = height;
+        /* frames per second */
+        //WARNING FPS = 1/TIME_BASE---------------------
+        AVRational fr;
+        fr.num = fps;
+        fr.den = 1;
+        m_encCdcCtx->time_base.num = fr.den;
+        m_encCdcCtx->time_base.den = fr.num;
+        
+        //Theory : High gop_size (more b-frame and p-frame) = High CPU, Low Bandwidth
+        //       : Low gop_size (more intra-frame)  = Low CPU, High Bandwidth
+        m_encCdcCtx->gop_size = (fr.num/fr.den)/2; /* emit one group of picture (which has an intra frame) every  frameRate/2 */
+        m_encCdcCtx->max_b_frames=2;
+        m_encCdcCtx->pix_fmt = PIX_FMT_YUV420P;
+        
+        av_opt_set(m_encCdcCtx->priv_data, "profile", "main", AV_OPT_SEARCH_CHILDREN);
+        av_opt_set(m_encCdcCtx->priv_data, "tune", "zerolatency", AV_OPT_SEARCH_CHILDREN);
+        av_opt_set(m_encCdcCtx->priv_data, "preset", "ultrafast", AV_OPT_SEARCH_CHILDREN);
+        
+	    /* open the encoder codec */
+        if (avcodec_open2(m_encCdcCtx, codec, NULL) < 0)
+        {
+            ROS_ERROR("Could not open the encoder");
+            return;
+        }
+
+        /** allocate and AVFRame for encoder **/
+        m_encFrame = avcodec_alloc_frame();
+        if (!m_encFrame)
+        {
+            ROS_ERROR("Cannot allocate frame");
+            return;
+        }
+
+        // Prepare the software scale context
+        // Will convert from RGB24 to YUV420P        
+        sws_ctx = sws_getContext(width, height, PIX_FMT_RGB24, //src
+                                m_encCdcCtx->width, m_encCdcCtx->height, m_encCdcCtx->pix_fmt, //dest
+                                SWS_FAST_BILINEAR, NULL, NULL, NULL);
+
+        //Allocate picture region
+        avpicture_alloc((AVPicture *)m_encFrame, PIX_FMT_YUV420P, width, height);
+
+        //Initialize packet
+        av_init_packet(&m_encodedPacket);
+        m_encodedPacket.data = NULL;    // packet data will be allocated by the encoder
+        m_encodedPacket.size = 0;
 			
-		x264_param_default_preset(&x264_codec_param, "veryfast", "zerolatency");
-		x264_codec_param.i_threads = 1;
-		x264_codec_param.i_width = width; 
-		x264_codec_param.i_height = height; 
-		x264_codec_param.i_fps_num = fps;
-		x264_codec_param.i_fps_den = 1;
-		// Intra refresh:
-		x264_codec_param.i_keyint_max = fps;
-		x264_codec_param.b_intra_refresh = 1;
-		//Rate control:
-		x264_codec_param.rc.i_rc_method = X264_RC_CRF;
-		x264_codec_param.rc.f_rf_constant = 25;
-		x264_codec_param.rc.f_rf_constant_max = 35;
-		//For streaming:
-		x264_codec_param.b_repeat_headers = 1;
-		x264_codec_param.b_annexb = 1;
-		x264_param_apply_profile(&x264_codec_param, "baseline");
-		
-		//Setup encoder
-		x264_encoder = x264_encoder_open(&x264_codec_param);
-				
-		//Alloc images (x264 requires YUV420P)
-		x264_picture_alloc(&x264_pic_in, X264_CSP_I420, width, height);
-		
 		initialized_ = true;
 		ROS_INFO("x264Publisher::initialize_codec(): codec initialized (width: %i, height: %i, fps: %i)",width,height,fps);
 	}
@@ -119,42 +196,44 @@ namespace x264_image_transport {
         //Something went wrong
         if (!initialized_)
             return;
-
-		
-		//Let's convert the image to something x264 understands		
-   		//Get scaling context...
-   		struct SwsContext* convertCtx = sws_getContext(width, height, PIX_FMT_RGB24, width, height, PIX_FMT_YUV420P, SWS_FAST_BILINEAR, NULL, NULL, NULL);
-		unsigned char* ptr[1];		
+        
+        //Pointer to RGB DATA    
+        unsigned char* ptr[1];		
 		ptr[0] = (unsigned char*) &message.data[0];
-		sws_scale(convertCtx,ptr,&srcstride,0,height,x264_pic_in.img.plane, x264_pic_in.img.i_stride);
-		sws_freeContext(convertCtx);  		
-   		
-   		//Encode
-   		x264_nal_t* nals;
-		int i_nals;
-		int frame_size = x264_encoder_encode(x264_encoder, &nals, &i_nals, &x264_pic_in, &x264_pic_out);
-		if (frame_size >= 0)
-		{
-			//ROS_INFO("x264_encoder_encode returned size : %i i_nals: %i",frame_size,i_nals);
-			for (int i= 0; i < i_nals; i++)
-			{
-				//ROS_INFO("NAL : %i, size: %i",i,nals[i].i_payload);				
-		    	// OK, Let's send our packets...
+           
+        //Let's convert the image to something ffmpeg/x264 understands		
+   		//Get scaling context...    
+        sws_scale(sws_ctx,ptr,&srcstride,0,height,m_encFrame->data, m_encFrame->linesize);
+ 
+        //int got_output = 0;
+        int ret = 0;
+        uint8_t buffer[height * srcstride];
+        
+        //Soon to be used...
+        //ret = avcodec_encode_video2(m_encCdcCtx, &m_encodedPacket, m_encFrame, &got_output);
+        ret = avcodec_encode_video(m_encCdcCtx, buffer, height * srcstride, m_encFrame);
+ 
+        if (ret > 0)
+        {
+                // OK, Let's send our packets...
 		    	x264_image_transport::x264Packet packet;
 		    	
 		    	//Set data
-		    	packet.data.resize(nals[i].i_payload);
+		    	packet.data.resize(ret);
 		    	
 		    	//Set width & height
 		    	packet.img_width = width; 
 		    	packet.img_height = height;
 		    	
 		    	//copy NAL data
-		    	memcpy(&packet.data[0],nals[i].p_payload,nals[i].i_payload);
+		    	memcpy(&packet.data[0],buffer,ret);
 		    	
 		    	//publish
-		    	publish_fn(packet);		    	
-			}		    
-		}
+		    	publish_fn(packet);
+		    	
+		    	//Not yet used...
+		    	av_free_packet(&m_encodedPacket);
+                av_init_packet(&m_encodedPacket);        
+        }		
 	}
 } //namespace x264_image_transport
