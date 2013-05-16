@@ -15,10 +15,10 @@ namespace x264_image_transport {
 	
 	
 	x264Publisher::x264Publisher()
-	: m_encFmtCtx(NULL),
-	  m_encCdcCtx(NULL),
-	  m_encFrame(NULL),
-	  sws_ctx(NULL),
+	: encFmtCtx_(NULL),
+	  encCdcCtx_(NULL),
+	  encFrame_(NULL),
+	  sws_ctx_(NULL),
 	  initialized_(false)
 	{
 		
@@ -31,26 +31,26 @@ namespace x264_image_transport {
 		ROS_INFO("x264Publisher::~x264Publisher()");
 		
 
-         if(m_encCdcCtx)
+         if(encCdcCtx_)
          {
-             avcodec_close(m_encCdcCtx);
-             m_encCdcCtx = 0;
+             avcodec_close(encCdcCtx_);
+             encCdcCtx_ = 0;
          }
-         if(m_encFmtCtx)
+         if(encFmtCtx_)
          {
-             avformat_close_input(&m_encFmtCtx);
-             m_encFmtCtx = 0;
+             avformat_close_input(&encFmtCtx_);
+             encFmtCtx_ = 0;
          }
-         if(m_encFrame)
+         if(encFrame_)
          {
-             av_free(m_encFrame);
-             m_encFrame = 0;
+             av_free(encFrame_);
+             encFrame_ = 0;
          }
 
-         if(sws_ctx)
+         if(sws_ctx_)
          {
-             sws_freeContext(sws_ctx);
-             sws_ctx = 0;
+             sws_freeContext(sws_ctx_);
+             sws_ctx_ = 0;
          }
 	}
 	
@@ -105,8 +105,8 @@ namespace x264_image_transport {
 	    }
 	    
 	    //Context
-	    m_encCdcCtx = avcodec_alloc_context3(codec);
-        if (!m_encCdcCtx)
+	    encCdcCtx_ = avcodec_alloc_context3(codec);
+        if (!encCdcCtx_)
         {
            ROS_ERROR("Unable to allocate encoder context");
            return;
@@ -115,39 +115,39 @@ namespace x264_image_transport {
 	    
 	    //Setup some parameter
         /* put sample parameters */
-        m_encCdcCtx->bit_rate = 512000; //Seems a good starting point
-        m_encCdcCtx->qmax = 51; //Allow big degradation
+        encCdcCtx_->bit_rate = 512000; //Seems a good starting point
+        encCdcCtx_->qmax = 51; //Allow big degradation
         /* resolution must be a multiple of two */
-        m_encCdcCtx->width = width;
-        m_encCdcCtx->height = height;
+        encCdcCtx_->width = width;
+        encCdcCtx_->height = height;
         /* frames per second */
         //WARNING FPS = 1/TIME_BASE---------------------
         AVRational fr;
         fr.num = fps;
         fr.den = 1;
-        m_encCdcCtx->time_base.num = fr.den;
-        m_encCdcCtx->time_base.den = fr.num;
+        encCdcCtx_->time_base.num = fr.den;
+        encCdcCtx_->time_base.den = fr.num;
         
         //Theory : High gop_size (more b-frame and p-frame) = High CPU, Low Bandwidth
         //       : Low gop_size (more intra-frame)  = Low CPU, High Bandwidth
-        m_encCdcCtx->gop_size = (fr.num/fr.den)/2; /* emit one group of picture (which has an intra frame) every  frameRate/2 */
-        m_encCdcCtx->max_b_frames=2;
-        m_encCdcCtx->pix_fmt = PIX_FMT_YUV420P;
+        encCdcCtx_->gop_size = (fr.num/fr.den)/2; /* emit one group of picture (which has an intra frame) every  frameRate/2 */
+        encCdcCtx_->max_b_frames=2;
+        encCdcCtx_->pix_fmt = PIX_FMT_YUV420P;
         
-        av_opt_set(m_encCdcCtx->priv_data, "profile", "main", AV_OPT_SEARCH_CHILDREN);
-        av_opt_set(m_encCdcCtx->priv_data, "tune", "zerolatency", AV_OPT_SEARCH_CHILDREN);
-        av_opt_set(m_encCdcCtx->priv_data, "preset", "ultrafast", AV_OPT_SEARCH_CHILDREN);
+        av_opt_set(encCdcCtx_->priv_data, "profile", "main", AV_OPT_SEARCH_CHILDREN);
+        av_opt_set(encCdcCtx_->priv_data, "tune", "zerolatency", AV_OPT_SEARCH_CHILDREN);
+        av_opt_set(encCdcCtx_->priv_data, "preset", "ultrafast", AV_OPT_SEARCH_CHILDREN);
         
 	    /* open the encoder codec */
-        if (avcodec_open2(m_encCdcCtx, codec, NULL) < 0)
+        if (avcodec_open2(encCdcCtx_, codec, NULL) < 0)
         {
             ROS_ERROR("Could not open the encoder");
             return;
         }
 
         /** allocate and AVFRame for encoder **/
-        m_encFrame = avcodec_alloc_frame();
-        if (!m_encFrame)
+        encFrame_ = avcodec_alloc_frame();
+        if (!encFrame_)
         {
             ROS_ERROR("Cannot allocate frame");
             return;
@@ -155,17 +155,17 @@ namespace x264_image_transport {
 
         // Prepare the software scale context
         // Will convert from RGB24 to YUV420P        
-        sws_ctx = sws_getContext(width, height, PIX_FMT_RGB24, //src
-                                m_encCdcCtx->width, m_encCdcCtx->height, m_encCdcCtx->pix_fmt, //dest
+        sws_ctx_ = sws_getContext(width, height, PIX_FMT_RGB24, //src
+                                encCdcCtx_->width, encCdcCtx_->height, encCdcCtx_->pix_fmt, //dest
                                 SWS_FAST_BILINEAR, NULL, NULL, NULL);
 
         //Allocate picture region
-        avpicture_alloc((AVPicture *)m_encFrame, PIX_FMT_YUV420P, width, height);
+        avpicture_alloc((AVPicture *)encFrame_, PIX_FMT_YUV420P, width, height);
 
         //Initialize packet
-        av_init_packet(&m_encodedPacket);
-        m_encodedPacket.data = NULL;    // packet data will be allocated by the encoder
-        m_encodedPacket.size = 0;
+        av_init_packet(&encodedPacket_);
+        encodedPacket_.data = NULL;    // packet data will be allocated by the encoder
+        encodedPacket_.size = 0;
 			
 		initialized_ = true;
 		ROS_INFO("x264Publisher::initialize_codec(): codec initialized (width: %i, height: %i, fps: %i)",width,height,fps);
@@ -203,15 +203,15 @@ namespace x264_image_transport {
            
         //Let's convert the image to something ffmpeg/x264 understands		
    		//Get scaling context...    
-        sws_scale(sws_ctx,ptr,&srcstride,0,height,m_encFrame->data, m_encFrame->linesize);
+        sws_scale(sws_ctx_,ptr,&srcstride,0,height,encFrame_->data, encFrame_->linesize);
  
         //int got_output = 0;
         int ret = 0;
         uint8_t buffer[height * srcstride];
         
         //Soon to be used...
-        //ret = avcodec_encode_video2(m_encCdcCtx, &m_encodedPacket, m_encFrame, &got_output);
-        ret = avcodec_encode_video(m_encCdcCtx, buffer, height * srcstride, m_encFrame);
+        //ret = avcodec_encode_video2(encCdcCtx_, &encodedPacket_, encFrame_, &got_output);
+        ret = avcodec_encode_video(encCdcCtx_, buffer, height * srcstride, encFrame_);
  
         if (ret > 0)
         {
@@ -232,8 +232,8 @@ namespace x264_image_transport {
 		    	publish_fn(packet);
 		    	
 		    	//Not yet used...
-		    	av_free_packet(&m_encodedPacket);
-                av_init_packet(&m_encodedPacket);        
+		    	av_free_packet(&encodedPacket_);
+                av_init_packet(&encodedPacket_);        
         }		
 	}
 } //namespace x264_image_transport

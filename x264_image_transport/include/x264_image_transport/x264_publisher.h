@@ -54,29 +54,16 @@ namespace x264_image_transport {
 	  // Some data is preserved across calls to publish(), but from the user's perspective publish() is
 	  // "logically const"
 	  mutable std::vector<x264_image_transport::x264Packet> stream_header_;
-	  
-/*	  
-	  
-	  //x264 encoder stuff
-	  mutable x264_param_t x264_codec_param;
-	  mutable x264_t *x264_encoder;
-	  mutable x264_picture_t x264_pic_in;
-	  mutable x264_picture_t x264_pic_out;
-*/
+	   
+      /** ENCODER VAR **/
+      mutable AVFormatContext *encFmtCtx_;
+      mutable AVCodecContext  *encCdcCtx_;
+      mutable AVFrame *encFrame_;
+      mutable AVPacket encodedPacket_;
 
- 
+      /** SOFTWARE SCALE CONTEXT **/
+      mutable SwsContext *sws_ctx_;
 
-    /** ENCODER VAR **/
-    mutable AVFormatContext *m_encFmtCtx;
-    mutable AVCodecContext  *m_encCdcCtx;
-    mutable AVFrame *m_encFrame;
-    mutable AVPacket        m_encodedPacket;
-
-
-    /** SOFTWARE SCALE CONTEXT **/
-    mutable SwsContext *sws_ctx;
-
-	  
 	  //initialized flag
 	  mutable bool initialized_;
 	  
