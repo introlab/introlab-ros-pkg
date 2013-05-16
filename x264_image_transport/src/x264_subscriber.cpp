@@ -25,9 +25,14 @@ namespace x264_image_transport {
     void x264Subscriber::initialize_codec(int width, int height)
     {
         ROS_INFO("x264Subscriber::initialize_codec(int width = %i, int height = %i)",width,height);
-        avcodec_init();
 
+
+	    // must be called before using avcodec lib
+        avcodec_register_all();
+        //Register codecs, devices and formats
         av_register_all();
+        //Initialize network, this is new from april 2013, it will initialize the RTP
+        avformat_network_init();
 
         //HARDCODING IMAGE SIZE
         latest_image_->height = width;
@@ -52,9 +57,14 @@ namespace x264_image_transport {
 
         //Set the codec Context
         ROS_INFO("VideoOutputContext::initialize : Setting AVCodecContext");
-        m_pCodecCtx = avcodec_alloc_context();
+        m_pCodecCtx = avcodec_alloc_context3(m_pCodec);
+
+
+        
         m_pCodecCtx->width = latest_image_->width;
         m_pCodecCtx->height= latest_image_->height;
+
+/*
         m_pCodecCtx->pix_fmt = PIX_FMT_YUV420P;
         m_pCodecCtx->codec_id = CODEC_ID_H264;
         m_pCodecCtx->codec_type = AVMEDIA_TYPE_VIDEO;
@@ -73,15 +83,18 @@ namespace x264_image_transport {
         //m_pCodecCtx->lpc_type = AV_LPC_TYPE_DEFAULT;
         m_pCodecCtx->profile = 100;
         m_pCodecCtx->level = 40;
-
+*/
 
         // Open codec
-        ROS_INFO("VideoOutputContext::initialize : Opening Codec");
-        if(avcodec_open(m_pCodecCtx, m_pCodec)<0)
+        ROS_INFO("Opening Codec");
+
+        /* open the decoder codec */
+        if (avcodec_open2(m_pCodecCtx, m_pCodec, NULL) < 0)
         {
-            ROS_ERROR("VideoOutputContext::initialize : Unable to open codec");
+            ROS_ERROR("Could not open the decoder");
             return;
         }
+
 
 
         m_pFrame=avcodec_alloc_frame();
@@ -112,10 +125,26 @@ namespace x264_image_transport {
 
     x264Subscriber::~x264Subscriber()
     {
-        if (initialized_)
+        initialized_ = false;
+        
+        if (m_pCodecCtx)
         {
-            //TODO CLEAR CODEC CONTEXT
             avcodec_close(m_pCodecCtx);
+        }
+        
+        if(m_pFrame)
+        {
+             av_free(m_pFrame);
+        }
+        
+        if (m_pFrameRGB)
+        {
+            av_free(m_pFrameRGB);
+        }
+            
+        if (m_img_convert_ctx)
+        {
+            sws_freeContext(m_img_convert_ctx);
         }
 
     }
@@ -150,10 +179,9 @@ namespace x264_image_transport {
             //Initialize converter context if required
             if (!m_img_convert_ctx)
             {
-                    m_img_convert_ctx =sws_getContext(codec->width, codec->height,
-                                                      codec->pix_fmt,
-                                                      codec->width, codec->height, PIX_FMT_RGB24, SWS_BILINEAR,
-                                                      NULL, NULL, NULL);
+                    m_img_convert_ctx =sws_getContext(codec->width, codec->height,codec->pix_fmt, //src
+                                                      codec->width, codec->height, PIX_FMT_RGB24, //dest
+                                                      SWS_FAST_BILINEAR,NULL, NULL, NULL);
             }
 
             //convert to RGB
@@ -165,7 +193,7 @@ namespace x264_image_transport {
 
     void x264Subscriber::internalCallback(const x264_image_transport::x264PacketConstPtr& message, const Callback& callback)
     {
-        ROS_INFO("x264Subscriber::internalCallback");
+        //ROS_INFO("x264Subscriber::internalCallback");
         
         if (!initialized_)
         {
@@ -194,9 +222,9 @@ namespace x264_image_transport {
         int result = avcodec_decode_video2(m_pCodecCtx, m_pFrame, &frameFinished,&packet);
 
 
-        if(frameFinished)
+        if(result > 0 && frameFinished > 0)
         {
-              ROS_INFO("Decoding result : %i frameFinished : %i",result,frameFinished);
+              //ROS_INFO("Decoding result : %i frameFinished : %i",result,frameFinished);
               
               //Convert input image to RGB32 format
               convert_rgb(m_pCodecCtx,m_pFrame,m_pFrameRGB);

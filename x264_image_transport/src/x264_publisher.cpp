@@ -3,12 +3,6 @@
 #include <vector>
 #include <cstdio> //for memcpy
 
-
-extern "C"
-{
-	#include <libswscale/swscale.h>
-}
-
 namespace x264_image_transport {
 
 	namespace enc = sensor_msgs::image_encodings;
