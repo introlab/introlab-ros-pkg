@@ -66,17 +66,20 @@ namespace x264_image_transport {
 	  Base::advertiseImpl(nh, base_topic, queue_size, user_connect_cb, user_disconnect_cb, tracked_object, latch);
 	
 	  // Set up reconfigure server for this topic
+#ifndef __APPLE__	  
 	  reconfigure_server_ = boost::make_shared<ReconfigureServer>(this->nh());
 	  ReconfigureServer::CallbackType f = boost::bind(&x264Publisher::configCb, this, _1, _2);
 	  reconfigure_server_->setCallback(f);
+#endif	  
 	}
-	
+
+#ifndef __APPLE__	
 	void x264Publisher::configCb(Config& config, uint32_t level)
 	{
 		//TODO HANDLE CONFIGURATION...
 		ROS_INFO("Configuration not handled yet");
 	}
-	
+#endif	
 	
 	void x264Publisher::initialize_codec(int width, int height, int fps) const
 	{

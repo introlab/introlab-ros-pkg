@@ -1,7 +1,11 @@
 #include <image_transport/simple_publisher_plugin.h>
 #include <dynamic_reconfigure/server.h>
-#include <x264_image_transport/x264PublisherConfig.h>
 #include <x264_image_transport/x264Packet.h>
+
+#ifndef __APPLE__
+    #include <x264_image_transport/x264PublisherConfig.h>
+#endif
+
 
 extern "C"
 {
@@ -43,11 +47,12 @@ namespace x264_image_transport {
 	                       const PublishFn& publish_fn) const;
 	
 	  // Dynamic reconfigure support
+#ifndef __APPLE__	  
 	  typedef x264_image_transport::x264PublisherConfig Config;
 	  typedef dynamic_reconfigure::Server<Config> ReconfigureServer;
-	  boost::shared_ptr<ReconfigureServer> reconfigure_server_;
-	
+	  boost::shared_ptr<ReconfigureServer> reconfigure_server_;	
 	  void configCb(Config& config, uint32_t level);
+#endif	
 	
       void initialize_codec(int width,int height,int fps) const;
 	

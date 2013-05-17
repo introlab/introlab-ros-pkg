@@ -162,17 +162,20 @@ namespace x264_image_transport {
         Base::subscribeImpl(nh, base_topic, queue_size, callback, tracked_object, transport_hints);
 
         // Set up reconfigure server for this topic
+#ifndef __APPLE__       
         reconfigure_server_ = boost::make_shared<ReconfigureServer>(this->nh());
         ReconfigureServer::CallbackType f = boost::bind(&x264Subscriber::configCb, this, _1, _2);
         reconfigure_server_->setCallback(f);
+#endif        
     }
 
+#ifndef __APPLE__
     void x264Subscriber::configCb(Config& config, uint32_t level)
     {
         //TODO HANDLE CONFIGURATION
         ROS_INFO("x264Subscriber::configCb not implemented yet");
     }
-
+#endif
 
     void x264Subscriber::convert_rgb(AVCodecContext *codec, AVFrame *inFrame, AVFrame *outFrame)
     {

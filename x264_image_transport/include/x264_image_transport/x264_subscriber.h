@@ -1,7 +1,11 @@
 #include <image_transport/simple_subscriber_plugin.h>
 #include <dynamic_reconfigure/server.h>
-#include <x264_image_transport/x264SubscriberConfig.h>
 #include <x264_image_transport/x264Packet.h>
+
+#ifndef __APPLE__
+    //Dynamic reconfigure not yet working on iOS
+    #include <x264_image_transport/x264SubscriberConfig.h>
+#endif
 
 extern "C"
 {
@@ -30,13 +34,14 @@ namespace x264_image_transport {
         // The function that does the actual decompression and calls a user supplied callback with the resulting image
         virtual void internalCallback(const x264_image_transport::x264PacketConstPtr &msg, const Callback& user_cb);
 
+
         // Dynamic reconfigure support
+#ifndef __APPLE__       
         typedef x264_image_transport::x264SubscriberConfig Config;
         typedef dynamic_reconfigure::Server<Config> ReconfigureServer;
         boost::shared_ptr<ReconfigureServer> reconfigure_server_;
-
-
         void configCb(Config& config, uint32_t level);
+#endif
 
         void initialize_codec(int width, int height);
         void convert_rgb(AVCodecContext *codec, AVFrame *inFrame, AVFrame *outFrame);
