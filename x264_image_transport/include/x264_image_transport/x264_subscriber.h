@@ -1,10 +1,10 @@
 #include <image_transport/simple_subscriber_plugin.h>
-#include <dynamic_reconfigure/server.h>
 #include <x264_image_transport/x264Packet.h>
 
 #ifndef __APPLE__
     //Dynamic reconfigure not yet working on iOS
     #include <x264_image_transport/x264SubscriberConfig.h>
+    #include <dynamic_reconfigure/server.h>
 #endif
 
 extern "C"

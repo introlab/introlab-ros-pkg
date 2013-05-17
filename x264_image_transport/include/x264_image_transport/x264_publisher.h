@@ -1,21 +1,22 @@
 #include <image_transport/simple_publisher_plugin.h>
-#include <dynamic_reconfigure/server.h>
 #include <x264_image_transport/x264Packet.h>
 
 #ifndef __APPLE__
+    //Dynamic reconfigure not yet working on iOS
     #include <x264_image_transport/x264PublisherConfig.h>
+    #include <dynamic_reconfigure/server.h>
 #endif
 
 
 extern "C"
 {
-	#include "libavcodec/avcodec.h"
-    #include "libavformat/avio.h"
-    #include "libavformat/avformat.h"
-    #include "libswscale/swscale.h"
-    #include "libavutil/opt.h"
-    #include "libavutil/imgutils.h"
-    #include "libavutil/samplefmt.h"
+	#include <libavcodec/avcodec.h>
+    #include <libavformat/avio.h>
+    #include <libavformat/avformat.h>
+    #include <libswscale/swscale.h>
+    #include <libavutil/opt.h>
+    #include <libavutil/imgutils.h>
+    #include <libavutil/samplefmt.h>
 }
 
 
