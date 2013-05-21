@@ -55,7 +55,7 @@ namespace x264_image_transport {
 	  void configCb(Config& config, uint32_t level);
 #endif	
 	
-      void initialize_codec(int width,int height,int fps) const;
+      void initialize_codec(int width,int height,int fps, const std::string &encoding) const;
 	
 	  // Some data is preserved across calls to publish(), but from the user's perspective publish() is
 	  // "logically const"

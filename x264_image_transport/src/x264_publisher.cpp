@@ -81,7 +81,7 @@ namespace x264_image_transport {
 	}
 #endif	
 	
-	void x264Publisher::initialize_codec(int width, int height, int fps) const
+	void x264Publisher::initialize_codec(int width, int height, int fps, const std::string& encoding) const
 	{
 	
 	    // must be called before using avcodec lib
@@ -151,10 +151,26 @@ namespace x264_image_transport {
         }
 
         // Prepare the software scale context
-        // Will convert from RGB24 to YUV420P        
-        sws_ctx_ = sws_getContext(width, height, PIX_FMT_RGB24, //src
-                                encCdcCtx_->width, encCdcCtx_->height, encCdcCtx_->pix_fmt, //dest
-                                SWS_FAST_BILINEAR, NULL, NULL, NULL);
+        // Will convert from RGB24 to YUV420P
+        if (encoding == enc::BGR8)
+        {        
+            sws_ctx_ = sws_getContext(width, height, PIX_FMT_BGR24, //src
+                                    encCdcCtx_->width, encCdcCtx_->height, encCdcCtx_->pix_fmt, //dest
+                                    SWS_FAST_BILINEAR, NULL, NULL, NULL);
+        }
+        else if (encoding == enc::RGB8)
+        {
+            sws_ctx_ = sws_getContext(width, height, PIX_FMT_RGB24, //src
+                                    encCdcCtx_->width, encCdcCtx_->height, encCdcCtx_->pix_fmt, //dest
+                                    SWS_FAST_BILINEAR, NULL, NULL, NULL);
+        }
+        else
+        {
+            ROS_WARN("Encoding not supported : %s, default to RGB8",encoding.c_str());
+            sws_ctx_ = sws_getContext(width, height, PIX_FMT_RGB24, //src
+                                    encCdcCtx_->width, encCdcCtx_->height, encCdcCtx_->pix_fmt, //dest
+                                    SWS_FAST_BILINEAR, NULL, NULL, NULL);
+        }
 
         //Allocate picture region
         avpicture_alloc((AVPicture *)encFrame_, PIX_FMT_YUV420P, width, height);
@@ -185,9 +201,12 @@ namespace x264_image_transport {
         int fps = 15;
         int srcstride = message.step;
 		
+		
 		if (!initialized_)
 		{
-		      initialize_codec(width,height,fps);  
+		      
+		
+		      initialize_codec(width,height,fps, message.encoding);  
 		}
 
         //Something went wrong

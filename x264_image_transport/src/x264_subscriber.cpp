@@ -5,8 +5,10 @@
 
 
 //using namespace std;
-
 namespace x264_image_transport {
+    
+    namespace enc = sensor_msgs::image_encodings;
+
 
     x264Subscriber::x264Subscriber()
         :   latest_image_(new sensor_msgs::Image()), initialized_(false)
@@ -39,7 +41,7 @@ namespace x264_image_transport {
         latest_image_->width = width;
         latest_image_->step = latest_image_->width*3;
         latest_image_->data.resize(latest_image_->step * latest_image_->height);
-        latest_image_->encoding = "8UC3";
+        latest_image_->encoding = enc::RGB8;
 
 
 
