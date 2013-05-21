@@ -35,8 +35,8 @@ namespace x264_image_transport {
         avformat_network_init();
 
         //HARDCODING IMAGE SIZE
-        latest_image_->height = width;
-        latest_image_->width = height;
+        latest_image_->height = height;
+        latest_image_->width = width;
         latest_image_->step = latest_image_->width*3;
         latest_image_->data.resize(latest_image_->step * latest_image_->height);
         latest_image_->encoding = "8UC3";
