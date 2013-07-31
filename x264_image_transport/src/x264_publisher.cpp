@@ -244,6 +244,9 @@ namespace x264_image_transport {
 		    	//copy NAL data
 		    	memcpy(&packet.data[0],buffer,ret);
 		    	
+                //Affect header
+                packet.header = message.header;
+
 		    	//publish
 		    	publish_fn(packet);
 		    	

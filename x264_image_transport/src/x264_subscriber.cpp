@@ -237,6 +237,9 @@ namespace x264_image_transport {
               //Copy data (RGB24)
               memcpy(&latest_image_->data[0],m_buffer,m_pCodecCtx->width *m_pCodecCtx->height * 3);
 
+              //Affect header
+              latest_image_->header = message->header;
+
               //Call callback (new image received)
               callback(latest_image_);
         }
