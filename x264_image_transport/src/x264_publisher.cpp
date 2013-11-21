@@ -166,7 +166,7 @@ namespace x264_image_transport {
         }
         else if (encoding == enc::YUV422)
         {
-            sws_ctx_ = sws_getContext(width, height, PIX_FMT_YUYV422, //src
+            sws_ctx_ = sws_getContext(width, height, PIX_FMT_UYVY422, //src
                                     encCdcCtx_->width, encCdcCtx_->height, encCdcCtx_->pix_fmt, //dest
                                     SWS_FAST_BILINEAR, NULL, NULL, NULL);
         }
