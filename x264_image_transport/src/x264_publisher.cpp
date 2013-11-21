@@ -164,6 +164,12 @@ namespace x264_image_transport {
                                     encCdcCtx_->width, encCdcCtx_->height, encCdcCtx_->pix_fmt, //dest
                                     SWS_FAST_BILINEAR, NULL, NULL, NULL);
         }
+        else if (encoding == enc::YUV422)
+        {
+            sws_ctx_ = sws_getContext(width, height, PIX_FMT_YUYV422, //src
+                                    encCdcCtx_->width, encCdcCtx_->height, encCdcCtx_->pix_fmt, //dest
+                                    SWS_FAST_BILINEAR, NULL, NULL, NULL);
+        }
         else
         {
             ROS_WARN("Encoding not supported : %s, default to RGB8",encoding.c_str());
