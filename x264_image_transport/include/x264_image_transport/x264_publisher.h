@@ -1,5 +1,6 @@
 #include <image_transport/simple_publisher_plugin.h>
 #include <x264_image_transport/x264Packet.h>
+#include <pthread.h>
 
 #ifndef __APPLE__
     //Dynamic reconfigure not yet working on iOS
@@ -72,7 +73,12 @@ namespace x264_image_transport {
 
 	  //initialized flag
 	  mutable bool initialized_;
+
+      //Maximum quantization
+      int qmax_;
 	  
+      //Config protect
+      mutable pthread_mutex_t mutex_;
 };
 
 } //namespace x264_image_transport

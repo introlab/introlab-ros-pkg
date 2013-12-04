@@ -13,10 +13,11 @@ namespace x264_image_transport {
 	  encCdcCtx_(NULL),
 	  encFrame_(NULL),
 	  sws_ctx_(NULL),
-	  initialized_(false)
+	  initialized_(false),
+      qmax_(51)
 	{
 		
-
+        pthread_mutex_init(&mutex_,NULL);
 		
 	}
 	
@@ -24,6 +25,7 @@ namespace x264_image_transport {
 	{
 		ROS_INFO("x264Publisher::~x264Publisher()");
 		
+         pthread_mutex_lock (&mutex_);
 
          if(encCdcCtx_)
          {
@@ -46,6 +48,9 @@ namespace x264_image_transport {
              sws_freeContext(sws_ctx_);
              sws_ctx_ = 0;
          }
+
+         pthread_mutex_unlock (&mutex_);
+         pthread_mutex_destroy(&mutex_);
 	}
 	
 	void x264Publisher::advertiseImpl(ros::NodeHandle &nh, const std::string &base_topic, uint32_t queue_size,
@@ -76,13 +81,48 @@ namespace x264_image_transport {
 #ifndef __APPLE__	
 	void x264Publisher::configCb(Config& config, uint32_t level)
 	{
-		//TODO HANDLE CONFIGURATION...
-		ROS_INFO("Configuration not handled yet");
+		//HANDLE CONFIGURATION...
+		ROS_WARN("Configuration changed qmax: %i",config.qmax);
+
+        qmax_ = config.qmax;
+
+        //reinitialize codec
+        if (initialized_)
+        {
+            pthread_mutex_lock (&mutex_);
+            initialized_ = false;
+
+            //Cleanup memory            
+            if(encCdcCtx_)
+            {
+                avcodec_close(encCdcCtx_);
+                encCdcCtx_ = 0;
+            }
+            if(encFmtCtx_)
+            {
+                avformat_close_input(&encFmtCtx_);
+                encFmtCtx_ = 0;
+            }
+            if(encFrame_)
+            {
+                av_free(encFrame_);
+                encFrame_ = 0;
+            }
+
+            if(sws_ctx_)
+            {
+                sws_freeContext(sws_ctx_);
+                sws_ctx_ = 0;
+            }
+            pthread_mutex_unlock (&mutex_);
+        }
+        
 	}
 #endif	
 	
 	void x264Publisher::initialize_codec(int width, int height, int fps, const std::string& encoding) const
 	{
+        pthread_mutex_lock (&mutex_);
 	
 	    // must be called before using avcodec lib
         avcodec_register_all();
@@ -113,7 +153,7 @@ namespace x264_image_transport {
 	    //Setup some parameter
         /* put sample parameters */
         encCdcCtx_->bit_rate = 512000; //Seems a good starting point
-        encCdcCtx_->qmax = 51; //Allow big degradation
+        encCdcCtx_->qmax = qmax_; //Allow big degradation
         /* resolution must be a multiple of two */
         encCdcCtx_->width = width;
         encCdcCtx_->height = height;
@@ -188,6 +228,7 @@ namespace x264_image_transport {
 			
 		initialized_ = true;
 		ROS_INFO("x264Publisher::initialize_codec(): codec initialized (width: %i, height: %i, fps: %i)",width,height,fps);
+        pthread_mutex_unlock (&mutex_);
 	}
 	
 	
@@ -204,7 +245,7 @@ namespace x264_image_transport {
 		//ROS_INFO("x264Publisher::publish");		
         int width = message.width;
         int height = message.height;
-        int fps = 15;
+        int fps = 24;
         int srcstride = message.step;
 		
 		
@@ -218,7 +259,8 @@ namespace x264_image_transport {
         //Something went wrong
         if (!initialized_)
             return;
-        
+
+        pthread_mutex_lock (&mutex_);
         //Pointer to RGB DATA    
         unsigned char* ptr[1];		
 		ptr[0] = (unsigned char*) &message.data[0];
@@ -259,6 +301,8 @@ namespace x264_image_transport {
 		    	//Not yet used...
 		    	av_free_packet(&encodedPacket_);
                 av_init_packet(&encodedPacket_);        
-        }		
+        }
+
+        pthread_mutex_unlock (&mutex_);		
 	}
 } //namespace x264_image_transport
