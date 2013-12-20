@@ -26,33 +26,7 @@ namespace x264_image_transport {
 		
          pthread_mutex_lock (&mutex_);
 
-         if(encCdcCtx_)
-         {
-             avcodec_close(encCdcCtx_);
-             encCdcCtx_ = 0;
-         }
-         if(encFmtCtx_)
-         {
-             avformat_close_input(&encFmtCtx_);
-             encFmtCtx_ = 0;
-         }
-         if(encFrame_)
-         {
-             av_free(encFrame_);
-             encFrame_ = 0;
-         }
-
-         if(sws_ctx_)
-         {
-             sws_freeContext(sws_ctx_);
-             sws_ctx_ = 0;
-         }
-
-        if (buffer_)
-        {
-            delete [] buffer_;
-            buffer_ = NULL;
-        }
+         memory_cleanup();
 
          pthread_mutex_unlock (&mutex_);
          pthread_mutex_destroy(&mutex_);
@@ -98,33 +72,7 @@ namespace x264_image_transport {
             initialized_ = false;
 
             //Cleanup memory            
-            if(encCdcCtx_)
-            {
-                avcodec_close(encCdcCtx_);
-                encCdcCtx_ = 0;
-            }
-            if(encFmtCtx_)
-            {
-                avformat_close_input(&encFmtCtx_);
-                encFmtCtx_ = 0;
-            }
-            if(encFrame_)
-            {
-                av_free(encFrame_);
-                encFrame_ = 0;
-            }
-
-            if(sws_ctx_)
-            {
-                sws_freeContext(sws_ctx_);
-                sws_ctx_ = 0;
-            }
-
-            if (buffer_)
-            {
-                delete [] buffer_;
-                buffer_ = NULL;
-            }
+            memory_cleanup();
 
 
             pthread_mutex_unlock (&mutex_);
@@ -133,6 +81,40 @@ namespace x264_image_transport {
 	}
 #endif	
 	
+    void x264Publisher::memory_cleanup() const
+    {
+        //Cleanup memory            
+        if(encCdcCtx_)
+        {
+            avcodec_close(encCdcCtx_);
+            encCdcCtx_ = 0;
+        }
+        if(encFmtCtx_)
+        {
+            avformat_close_input(&encFmtCtx_);
+            encFmtCtx_ = 0;
+        }
+        if(encFrame_)
+        {
+            av_free(encFrame_);
+            encFrame_ = 0;
+        }
+
+        if(sws_ctx_)
+        {
+            sws_freeContext(sws_ctx_);
+            sws_ctx_ = 0;
+        }
+
+        if (buffer_)
+        {
+            delete [] buffer_;
+            buffer_ = NULL;
+        }
+
+        initialized_ = false;
+    }
+
 	void x264Publisher::initialize_codec(int width, int height, int fps, const std::string& encoding) const
 	{
         pthread_mutex_lock (&mutex_);
@@ -151,6 +133,8 @@ namespace x264_image_transport {
 	    if (!codec)
 	    {
 	        ROS_ERROR("Unable to find H264 encoder, ffmpeg version too old ?");
+            //Cleanup memory            
+            memory_cleanup();
             pthread_mutex_unlock (&mutex_);
 	        return;
 	    }
@@ -160,6 +144,8 @@ namespace x264_image_transport {
         if (!encCdcCtx_)
         {
            ROS_ERROR("Unable to allocate encoder context");
+           //Cleanup memory            
+           memory_cleanup();
            pthread_mutex_unlock (&mutex_);
            return;
         }
@@ -194,6 +180,8 @@ namespace x264_image_transport {
         if (avcodec_open2(encCdcCtx_, codec, NULL) < 0)
         {
             ROS_ERROR("Could not open the encoder");
+            //Cleanup memory            
+            memory_cleanup();
             pthread_mutex_unlock (&mutex_);
             return;
         }
@@ -204,6 +192,8 @@ namespace x264_image_transport {
         if (!encFrame_)
         {
             ROS_ERROR("Cannot allocate frame");
+            //Cleanup memory            
+            memory_cleanup();
             pthread_mutex_unlock (&mutex_);
             return;
         }
@@ -242,6 +232,8 @@ namespace x264_image_transport {
                                     SWS_FAST_BILINEAR, NULL, NULL, NULL);
             */
             ROS_WARN_THROTTLE(1.0,"Encoding will be supported in next ffmpeg version : %s",encoding.c_str());
+            //Cleanup memory            
+            memory_cleanup();
             pthread_mutex_unlock (&mutex_);
             return;
 
@@ -249,6 +241,8 @@ namespace x264_image_transport {
         else
         {
             ROS_WARN_THROTTLE(1.0,"Encoding not supported : %s",encoding.c_str());
+            //Cleanup memory            
+            memory_cleanup();
             pthread_mutex_unlock (&mutex_);
             return;
         }

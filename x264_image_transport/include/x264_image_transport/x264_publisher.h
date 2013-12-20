@@ -48,6 +48,9 @@ namespace x264_image_transport {
 	  // Main publish function
 	  virtual void publish(const sensor_msgs::Image& message,
 	                       const PublishFn& publish_fn) const;
+
+
+      void memory_cleanup() const;
 	
 	  // Dynamic reconfigure support
 #ifndef __APPLE__	  
