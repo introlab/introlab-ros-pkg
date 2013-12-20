@@ -26,6 +26,7 @@ namespace x264_image_transport {
 	class x264Publisher : public image_transport::SimplePublisherPlugin<x264_image_transport::x264Packet>
 	{
 	public:
+
 	  x264Publisher();
 	
 	  ~x264Publisher();
@@ -67,6 +68,9 @@ namespace x264_image_transport {
       mutable AVCodecContext  *encCdcCtx_;
       mutable AVFrame *encFrame_;
       mutable AVPacket encodedPacket_;
+
+      /** temporary memory **/
+      mutable unsigned char *buffer_;
 
       /** SOFTWARE SCALE CONTEXT **/
       mutable SwsContext *sws_ctx_;

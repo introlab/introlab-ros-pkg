@@ -13,7 +13,7 @@
   <depend package="dynamic_reconfigure"/>
 
   <export>
-    <cpp lflags="-Wl,-rpath,${prefix}/lib -L${prefix}/lib -lx264_image_transport -lx264 -lavcodec -lswscale -lavformat" cflags="-I${prefix}/include"/>
+    <cpp lflags="-Wl,-rpath,${prefix}/lib -L${prefix}/lib -lx264_image_transport -lx264 -lavcodec -lswscale -lavformat" cflags="-I${prefix}/include -I/usr/include/ffmpeg"/>
     <image_transport plugin="${prefix}/x264_plugins.xml" />
   </export>
 </package>

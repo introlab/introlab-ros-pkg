@@ -6,19 +6,18 @@
 namespace x264_image_transport {
 
 	namespace enc = sensor_msgs::image_encodings;
-	
-	
+
 	x264Publisher::x264Publisher()
 	: encFmtCtx_(NULL),
 	  encCdcCtx_(NULL),
 	  encFrame_(NULL),
+      buffer_(NULL),
 	  sws_ctx_(NULL),
 	  initialized_(false),
       qmax_(51)
 	{
 		
-        pthread_mutex_init(&mutex_,NULL);
-		
+        pthread_mutex_init(&mutex_,NULL);	
 	}
 	
 	x264Publisher::~x264Publisher()
@@ -48,6 +47,12 @@ namespace x264_image_transport {
              sws_freeContext(sws_ctx_);
              sws_ctx_ = 0;
          }
+
+        if (buffer_)
+        {
+            delete [] buffer_;
+            buffer_ = NULL;
+        }
 
          pthread_mutex_unlock (&mutex_);
          pthread_mutex_destroy(&mutex_);
@@ -114,6 +119,14 @@ namespace x264_image_transport {
                 sws_freeContext(sws_ctx_);
                 sws_ctx_ = 0;
             }
+
+            if (buffer_)
+            {
+                delete [] buffer_;
+                buffer_ = NULL;
+            }
+
+
             pthread_mutex_unlock (&mutex_);
         }
         
@@ -138,6 +151,7 @@ namespace x264_image_transport {
 	    if (!codec)
 	    {
 	        ROS_ERROR("Unable to find H264 encoder, ffmpeg version too old ?");
+            pthread_mutex_unlock (&mutex_);
 	        return;
 	    }
 	    
@@ -146,6 +160,7 @@ namespace x264_image_transport {
         if (!encCdcCtx_)
         {
            ROS_ERROR("Unable to allocate encoder context");
+           pthread_mutex_unlock (&mutex_);
            return;
         }
 	    
@@ -179,14 +194,17 @@ namespace x264_image_transport {
         if (avcodec_open2(encCdcCtx_, codec, NULL) < 0)
         {
             ROS_ERROR("Could not open the encoder");
+            pthread_mutex_unlock (&mutex_);
             return;
         }
 
         /** allocate and AVFRame for encoder **/
         encFrame_ = avcodec_alloc_frame();
+
         if (!encFrame_)
         {
             ROS_ERROR("Cannot allocate frame");
+            pthread_mutex_unlock (&mutex_);
             return;
         }
 
@@ -204,22 +222,42 @@ namespace x264_image_transport {
                                     encCdcCtx_->width, encCdcCtx_->height, encCdcCtx_->pix_fmt, //dest
                                     SWS_FAST_BILINEAR, NULL, NULL, NULL);
         }
+        else if (encoding == enc::RGB16)
+        {
+            sws_ctx_ = sws_getContext(width, height, PIX_FMT_RGB48, //src
+                                    encCdcCtx_->width, encCdcCtx_->height, encCdcCtx_->pix_fmt, //dest
+                                    SWS_FAST_BILINEAR, NULL, NULL, NULL);
+        }
         else if (encoding == enc::YUV422)
         {
             sws_ctx_ = sws_getContext(width, height, PIX_FMT_UYVY422, //src
                                     encCdcCtx_->width, encCdcCtx_->height, encCdcCtx_->pix_fmt, //dest
                                     SWS_FAST_BILINEAR, NULL, NULL, NULL);
         }
-        else
+        else if (encoding == enc::BAYER_GBRG16)
         {
-            ROS_WARN("Encoding not supported : %s, default to RGB8",encoding.c_str());
-            sws_ctx_ = sws_getContext(width, height, PIX_FMT_RGB24, //src
+            /*
+            sws_ctx_ = sws_getContext(width, height, PIX_FMT_BAYER_GBRG16LE, //src
                                     encCdcCtx_->width, encCdcCtx_->height, encCdcCtx_->pix_fmt, //dest
                                     SWS_FAST_BILINEAR, NULL, NULL, NULL);
+            */
+            ROS_WARN_THROTTLE(1.0,"Encoding will be supported in next ffmpeg version : %s",encoding.c_str());
+            pthread_mutex_unlock (&mutex_);
+            return;
+
         }
+        else
+        {
+            ROS_WARN_THROTTLE(1.0,"Encoding not supported : %s",encoding.c_str());
+            pthread_mutex_unlock (&mutex_);
+            return;
+        }
+        //Allocate  buffer
+        buffer_ = new unsigned char[width * height * 2];
+
 
         //Allocate picture region
-        avpicture_alloc((AVPicture *)encFrame_, PIX_FMT_YUV420P, width, height);
+        avpicture_alloc((AVPicture *)encFrame_, encCdcCtx_->pix_fmt, width, height);
 
         //Initialize packet
         av_init_packet(&encodedPacket_);
@@ -241,8 +279,7 @@ namespace x264_image_transport {
 	
 	
 	void x264Publisher::publish(const sensor_msgs::Image& message, const PublishFn& publish_fn) const
-	{
-		//ROS_INFO("x264Publisher::publish");		
+	{	
         int width = message.width;
         int height = message.height;
         int fps = 24;
@@ -251,8 +288,6 @@ namespace x264_image_transport {
 		
 		if (!initialized_)
 		{
-		      
-		
 		      initialize_codec(width,height,fps, message.encoding);  
 		}
 
@@ -261,21 +296,26 @@ namespace x264_image_transport {
             return;
 
         pthread_mutex_lock (&mutex_);
+
+
+
         //Pointer to RGB DATA    
         unsigned char* ptr[1];		
 		ptr[0] = (unsigned char*) &message.data[0];
-           
+        //ROS_INFO("Input data size %i ",message.data.size());          
         //Let's convert the image to something ffmpeg/x264 understands		
-   		//Get scaling context...    
-        sws_scale(sws_ctx_,ptr,&srcstride,0,height,encFrame_->data, encFrame_->linesize);
+   		//Get scaling context...
  
+        sws_scale(sws_ctx_,ptr,&srcstride,0,height,encFrame_->data, encFrame_->linesize);
+
+
         //int got_output = 0;
         int ret = 0;
-        uint8_t buffer[height * srcstride];
+        //uint8_t buffer[height * srcstride]; //one full frame
         
-        //Soon to be used...
+
         //ret = avcodec_encode_video2(encCdcCtx_, &encodedPacket_, encFrame_, &got_output);
-        ret = avcodec_encode_video(encCdcCtx_, buffer, height * srcstride, encFrame_);
+        ret = avcodec_encode_video(encCdcCtx_, buffer_, height * srcstride, encFrame_);
  
         if (ret > 0)
         {
@@ -290,7 +330,7 @@ namespace x264_image_transport {
 		    	packet.img_height = height;
 		    	
 		    	//copy NAL data
-		    	memcpy(&packet.data[0],buffer,ret);
+		    	memcpy(&packet.data[0],buffer_,ret);
 		    	
                 //Affect header
                 packet.header = message.header;
