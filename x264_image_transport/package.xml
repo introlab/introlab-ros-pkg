@@ -1,0 +1,47 @@
+<package>
+  <name>x264_image_transport</name>
+  <version>1.9.3</version>
+  <description>
+    x264_image_transport provides a plugin to image_transport for
+    transparently sending an image stream encoded with the H.264 codec.
+  </description>
+  <maintainer email="Dominic.Letourneau@USherbrooke.ca">Dominic Letourneau</maintainer>
+  <license>BSD</license>
+
+  <url type="website">https://github.com/introlab/introlab-ros-pkg/tree/master/x264_image_transport</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <build_depend>cv_bridge</build_depend>
+  <build_depend>dynamic_reconfigure</build_depend>
+  <build_depend>image_transport</build_depend>
+  <build_depend>message_generation</build_depend>
+  <build_depend>pluginlib</build_depend>
+  <build_depend>rosbag</build_depend>
+  <build_depend>std_msgs</build_depend>
+  <build_depend>x264</build_depend>
+  <build_depend>avcodec</build_depend>
+  <build_depend>avformat</build_depend>
+  <build_depend>avutil</build_depend>
+  <build_depend>swscale</build_depend>
+      
+
+  <run_depend>cv_bridge</run_depend>
+  <run_depend>dynamic_reconfigure</run_depend>
+  <run_depend>image_transport</run_depend>
+  <run_depend>message_runtime</run_depend>
+  <run_depend>pluginlib</run_depend>
+  <run_depend>rosbag</run_depend>
+  <run_depend>std_msgs</run_depend>
+  <run_depend>x264</run_depend>
+  <run_depend>avcodec</run_depend>
+  <run_depend>avformat</run_depend>
+  <run_depend>avutil</run_depend>
+  <run_depend>swscale</run_depend>
+      
+
+  <export>
+    <cpp lflags="-Wl,-rpath,${prefix}/lib -L${prefix}/lib -lx264_image_transport -lx264 -lavcodec -lswscale -lavformat" cflags="-I${prefix}/include -I/usr/include/ffmpeg"/>
+    <image_transport plugin="${prefix}/x264_plugins.xml" />
+  </export>
+</package>
