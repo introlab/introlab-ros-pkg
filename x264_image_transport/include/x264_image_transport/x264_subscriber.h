@@ -58,7 +58,7 @@ namespace x264_image_transport {
         AVPacket        m_packet;
         SwsContext      *m_img_convert_ctx;
         AVInputFormat* m_inputFormat;
-        AVFormatParameters m_formatParams;
+        // AVFormatParameters m_formatParams;
         uint8_t         *m_buffer;
 	};
 
