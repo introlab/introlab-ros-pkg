@@ -1,0 +1,1106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="RtAudio"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\rtaudio\;CMake Files\rtaudio\tests\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\..\;CMake Files\..\..\..\..\..\usr\;CMake Files\..\..\..\..\..\usr\src\;CMake Files\..\..\..\..\..\usr\src\gtest\;CMake Files\..\..\..\..\..\usr\src\gtest\cmake\;CMake Files\..\..\..\..\..\opt\;CMake Files\..\..\..\..\..\opt\ros\;CMake Files\..\..\..\..\..\opt\ros\kinetic\;CMake Files\..\..\..\..\..\opt\ros\kinetic\share\;CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\;CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\;CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\platform\;CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\test\;CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\tools\;CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\templates\;CMake Files\..\..\..\..\..\opt\ros\kinetic\share\roscpp\;CMake Files\..\..\..\..\..\opt\ros\kinetic\share\roscpp\cmake\;CMake Files\..\..\..\..\..\opt\ros\kinetic\share\cpp_common\;CMake Files\..\..\..\..\..\opt\ros\kinetic\share\cpp_common\cmake\;CMake Files\..\..\..\..\..\opt\ros\kinetic\share\message_runtime\;CMake Files\..\..\..\..\..\opt\ros\kinetic\share\message_runtime\cmake\;CMake Files\..\..\..\..\..\opt\ros\kinetic\share\roscpp_serialization\;CMake Files\..\..\..\..\..\opt\ros\kinetic\share\roscpp_serialization\cmake\;CMake Files\..\..\..\..\..\opt\ros\kinetic\share\roscpp_traits\;CMake Files\..\..\..\..\..\opt\ros\kinetic\share\roscpp_traits\cmake\;CMake Files\..\..\..\..\..\opt\ros\kinetic\share\rostime\;CMake Files\..\..\..\..\..\opt\ros\kinetic\share\rostime\cmake\;CMake Files\..\..\..\..\..\opt\ros\kinetic\share\rosconsole\;CMake Files\..\..\..\..\..\opt\ros\kinetic\share\rosconsole\cmake\;CMake Files\..\..\..\..\..\opt\ros\kinetic\share\rosgraph_msgs\;CMake Files\..\..\..\..\..\opt\ros\kinetic\share\rosgraph_msgs\cmake\;CMake Files\..\..\..\..\..\opt\ros\kinetic\share\std_msgs\;CMake Files\..\..\..\..\..\opt\ros\kinetic\share\std_msgs\cmake\;CMake Files\..\..\..\..\..\opt\ros\kinetic\share\xmlrpcpp\;CMake Files\..\..\..\..\..\opt\ros\kinetic\share\xmlrpcpp\cmake\;CMake Files\manyears_ros\;CMake Files\manyears_ros\src\;CMake Files\cmake-build-debug\;CMake Files\cmake-build-debug\catkin\;CMake Files\cmake-build-debug\catkin\catkin_generated\;CMake Files\cmake-build-debug\catkin\catkin_generated\version\;CMake Files\cmake-build-debug\catkin_generated\;CMake Files\cmake-build-debug\catkin_generated\installspace\;CMake Files\cmake-build-debug\manyears_ros\;CMake Files\cmake-build-debug\manyears_ros\catkin_generated\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rtaudio_static">
+				<Option output="/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/librtaudio_static.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-D__RTAUDIO_DEBUG__"/>
+					<Add option="-DHAVE_GETTIMEOFDAY"/>
+					<Add option="-D__LINUX_ALSA__"/>
+					<Add directory="/usr/include/c++/5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
+					<Add directory="/usr/include/c++/5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/Makefile&quot;  VERBOSE=1 rtaudio_static"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rtaudio_static/fast">
+				<Option output="/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/librtaudio_static.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-D__RTAUDIO_DEBUG__"/>
+					<Add option="-DHAVE_GETTIMEOFDAY"/>
+					<Add option="-D__LINUX_ALSA__"/>
+					<Add directory="/usr/include/c++/5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
+					<Add directory="/usr/include/c++/5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/Makefile&quot;  VERBOSE=1 rtaudio_static/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rtaudio">
+				<Option output="/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/librtaudio.so" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio"/>
+				<Option object_output="./"/>
+				<Option type="3"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-D__RTAUDIO_DEBUG__"/>
+					<Add option="-DHAVE_GETTIMEOFDAY"/>
+					<Add option="-D__LINUX_ALSA__"/>
+					<Add directory="/usr/include/c++/5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
+					<Add directory="/usr/include/c++/5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/Makefile&quot;  VERBOSE=1 rtaudio"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rtaudio/fast">
+				<Option output="/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/librtaudio.so" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio"/>
+				<Option object_output="./"/>
+				<Option type="3"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-D__RTAUDIO_DEBUG__"/>
+					<Add option="-DHAVE_GETTIMEOFDAY"/>
+					<Add option="-D__LINUX_ALSA__"/>
+					<Add directory="/usr/include/c++/5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
+					<Add directory="/usr/include/c++/5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/Makefile&quot;  VERBOSE=1 rtaudio/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Nightly">
+				<Option working_dir="/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/Makefile&quot;  VERBOSE=1 Nightly"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Continuous">
+				<Option working_dir="/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/Makefile&quot;  VERBOSE=1 Continuous"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Experimental">
+				<Option working_dir="/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/Makefile&quot;  VERBOSE=1 Experimental"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="audioprobe">
+				<Option output="/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/tests/audioprobe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir=""/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-D__RTAUDIO_DEBUG__"/>
+					<Add option="-DHAVE_GETTIMEOFDAY"/>
+					<Add option="-D__LINUX_ALSA__"/>
+					<Add directory="/home/red1/catkin_ws/src/introlab-ros-pkg/rtaudio/tests/.."/>
+					<Add directory="/usr/include/c++/5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
+					<Add directory="/usr/include/c++/5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/tests/Makefile&quot;  VERBOSE=1 audioprobe"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/tests/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/tests/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="audioprobe/fast">
+				<Option output="/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/tests/audioprobe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir=""/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-D__RTAUDIO_DEBUG__"/>
+					<Add option="-DHAVE_GETTIMEOFDAY"/>
+					<Add option="-D__LINUX_ALSA__"/>
+					<Add directory="/home/red1/catkin_ws/src/introlab-ros-pkg/rtaudio/tests/.."/>
+					<Add directory="/usr/include/c++/5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
+					<Add directory="/usr/include/c++/5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/tests/Makefile&quot;  VERBOSE=1 audioprobe/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/tests/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/tests/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="playsaw">
+				<Option output="/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/tests/playsaw" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir=""/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-D__RTAUDIO_DEBUG__"/>
+					<Add option="-DHAVE_GETTIMEOFDAY"/>
+					<Add option="-D__LINUX_ALSA__"/>
+					<Add directory="/home/red1/catkin_ws/src/introlab-ros-pkg/rtaudio/tests/.."/>
+					<Add directory="/usr/include/c++/5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
+					<Add directory="/usr/include/c++/5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/tests/Makefile&quot;  VERBOSE=1 playsaw"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/tests/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/tests/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="playsaw/fast">
+				<Option output="/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/tests/playsaw" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir=""/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-D__RTAUDIO_DEBUG__"/>
+					<Add option="-DHAVE_GETTIMEOFDAY"/>
+					<Add option="-D__LINUX_ALSA__"/>
+					<Add directory="/home/red1/catkin_ws/src/introlab-ros-pkg/rtaudio/tests/.."/>
+					<Add directory="/usr/include/c++/5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
+					<Add directory="/usr/include/c++/5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/tests/Makefile&quot;  VERBOSE=1 playsaw/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/tests/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/tests/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="playraw">
+				<Option output="/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/tests/playraw" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir=""/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-D__RTAUDIO_DEBUG__"/>
+					<Add option="-DHAVE_GETTIMEOFDAY"/>
+					<Add option="-D__LINUX_ALSA__"/>
+					<Add directory="/home/red1/catkin_ws/src/introlab-ros-pkg/rtaudio/tests/.."/>
+					<Add directory="/usr/include/c++/5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
+					<Add directory="/usr/include/c++/5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/tests/Makefile&quot;  VERBOSE=1 playraw"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/tests/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/tests/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="playraw/fast">
+				<Option output="/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/tests/playraw" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir=""/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-D__RTAUDIO_DEBUG__"/>
+					<Add option="-DHAVE_GETTIMEOFDAY"/>
+					<Add option="-D__LINUX_ALSA__"/>
+					<Add directory="/home/red1/catkin_ws/src/introlab-ros-pkg/rtaudio/tests/.."/>
+					<Add directory="/usr/include/c++/5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
+					<Add directory="/usr/include/c++/5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/tests/Makefile&quot;  VERBOSE=1 playraw/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/tests/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/tests/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="record">
+				<Option output="/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/tests/record" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir=""/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-D__RTAUDIO_DEBUG__"/>
+					<Add option="-DHAVE_GETTIMEOFDAY"/>
+					<Add option="-D__LINUX_ALSA__"/>
+					<Add directory="/home/red1/catkin_ws/src/introlab-ros-pkg/rtaudio/tests/.."/>
+					<Add directory="/usr/include/c++/5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
+					<Add directory="/usr/include/c++/5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/tests/Makefile&quot;  VERBOSE=1 record"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/tests/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/tests/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="record/fast">
+				<Option output="/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/tests/record" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir=""/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-D__RTAUDIO_DEBUG__"/>
+					<Add option="-DHAVE_GETTIMEOFDAY"/>
+					<Add option="-D__LINUX_ALSA__"/>
+					<Add directory="/home/red1/catkin_ws/src/introlab-ros-pkg/rtaudio/tests/.."/>
+					<Add directory="/usr/include/c++/5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
+					<Add directory="/usr/include/c++/5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/tests/Makefile&quot;  VERBOSE=1 record/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/tests/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/tests/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="duplex">
+				<Option output="/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/tests/duplex" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir=""/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-D__RTAUDIO_DEBUG__"/>
+					<Add option="-DHAVE_GETTIMEOFDAY"/>
+					<Add option="-D__LINUX_ALSA__"/>
+					<Add directory="/home/red1/catkin_ws/src/introlab-ros-pkg/rtaudio/tests/.."/>
+					<Add directory="/usr/include/c++/5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
+					<Add directory="/usr/include/c++/5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/tests/Makefile&quot;  VERBOSE=1 duplex"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/tests/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/tests/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="duplex/fast">
+				<Option output="/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/tests/duplex" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir=""/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-D__RTAUDIO_DEBUG__"/>
+					<Add option="-DHAVE_GETTIMEOFDAY"/>
+					<Add option="-D__LINUX_ALSA__"/>
+					<Add directory="/home/red1/catkin_ws/src/introlab-ros-pkg/rtaudio/tests/.."/>
+					<Add directory="/usr/include/c++/5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
+					<Add directory="/usr/include/c++/5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/tests/Makefile&quot;  VERBOSE=1 duplex/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/tests/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/tests/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="teststops">
+				<Option output="/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/tests/teststops" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir=""/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-D__RTAUDIO_DEBUG__"/>
+					<Add option="-DHAVE_GETTIMEOFDAY"/>
+					<Add option="-D__LINUX_ALSA__"/>
+					<Add directory="/home/red1/catkin_ws/src/introlab-ros-pkg/rtaudio/tests/.."/>
+					<Add directory="/usr/include/c++/5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
+					<Add directory="/usr/include/c++/5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/tests/Makefile&quot;  VERBOSE=1 teststops"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/tests/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/tests/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="teststops/fast">
+				<Option output="/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/tests/teststops" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir=""/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-D__RTAUDIO_DEBUG__"/>
+					<Add option="-DHAVE_GETTIMEOFDAY"/>
+					<Add option="-D__LINUX_ALSA__"/>
+					<Add directory="/home/red1/catkin_ws/src/introlab-ros-pkg/rtaudio/tests/.."/>
+					<Add directory="/usr/include/c++/5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
+					<Add directory="/usr/include/c++/5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/tests/Makefile&quot;  VERBOSE=1 teststops/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/tests/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/tests/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="testall">
+				<Option output="/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/tests/testall" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir=""/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-D__RTAUDIO_DEBUG__"/>
+					<Add option="-DHAVE_GETTIMEOFDAY"/>
+					<Add option="-D__LINUX_ALSA__"/>
+					<Add directory="/home/red1/catkin_ws/src/introlab-ros-pkg/rtaudio/tests/.."/>
+					<Add directory="/usr/include/c++/5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
+					<Add directory="/usr/include/c++/5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/tests/Makefile&quot;  VERBOSE=1 testall"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/tests/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/tests/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="testall/fast">
+				<Option output="/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/tests/testall" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir=""/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-D__RTAUDIO_DEBUG__"/>
+					<Add option="-DHAVE_GETTIMEOFDAY"/>
+					<Add option="-D__LINUX_ALSA__"/>
+					<Add directory="/home/red1/catkin_ws/src/introlab-ros-pkg/rtaudio/tests/.."/>
+					<Add directory="/usr/include/c++/5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
+					<Add directory="/usr/include/c++/5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/tests/Makefile&quot;  VERBOSE=1 testall/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/tests/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/rtaudio/tests/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/rtaudio/RtAudio.cpp">
+			<Option target="rtaudio_static"/>
+			<Option target="rtaudio"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/rtaudio/RtAudio.h">
+			<Option target="rtaudio_static"/>
+			<Option target="rtaudio"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/rtaudio/tests/audioprobe.cpp">
+			<Option target="audioprobe"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/rtaudio/tests/duplex.cpp">
+			<Option target="duplex"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/rtaudio/tests/playraw.cpp">
+			<Option target="playraw"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/rtaudio/tests/playsaw.cpp">
+			<Option target="playsaw"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/rtaudio/tests/record.cpp">
+			<Option target="record"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/rtaudio/tests/testall.cpp">
+			<Option target="testall"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/rtaudio/tests/teststops.cpp">
+			<Option target="teststops"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/rtaudio/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\rtaudio\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/rtaudio/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\rtaudio\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/rtaudio/tests/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\rtaudio\tests\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/rtaudio/tests/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\rtaudio\tests\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../usr/src/gtest/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\src\gtest\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../usr/src/gtest/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\src\gtest\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../usr/src/gtest/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\src\gtest\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../usr/src/gtest/cmake/internal_utils.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\src\gtest\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../usr/src/gtest/cmake/internal_utils.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\src\gtest\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../usr/src/gtest/cmake/internal_utils.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\src\gtest\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/package.xml">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/package.xml">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/catkinConfig-version.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/catkinConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/all.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/assert.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/atomic_configure_file.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/catkin_add_env_hooks.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/catkin_destinations.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/catkin_download.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/catkin_generate_environment.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/catkin_install_python.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/catkin_libraries.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/catkin_metapackage.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/catkin_package.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/catkin_package_xml.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/catkin_workspace.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/debug_message.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/em_expand.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/python.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/empy.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/find_program_required.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/legacy.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/list_append_deduplicate.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/list_append_unique.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/list_insert_in_workspace_order.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/safe_execute_process.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/stamp.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/string_starts_with.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/catkin_python_setup.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/interrogate_setup_dot_py.py">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/catkinConfig-version.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/catkinConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/all.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/assert.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/atomic_configure_file.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/catkin_add_env_hooks.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/catkin_destinations.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/catkin_download.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/catkin_generate_environment.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/catkin_install_python.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/catkin_libraries.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/catkin_metapackage.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/catkin_package.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/catkin_package_xml.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/catkin_workspace.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/debug_message.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/em_expand.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/python.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/empy.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/find_program_required.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/legacy.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/list_append_deduplicate.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/list_append_unique.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/list_insert_in_workspace_order.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/safe_execute_process.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/stamp.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/string_starts_with.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/catkin_python_setup.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/interrogate_setup_dot_py.py">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/platform/lsb.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\platform\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/platform/ubuntu.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\platform\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/platform/windows.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\platform\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/platform/lsb.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\platform\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/platform/ubuntu.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\platform\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/platform/windows.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\platform\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/test/tests.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\test\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/test/catkin_download_test_data.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\test\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/test/gtest.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\test\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/test/nosetests.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\test\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/test/tests.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\test\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/test/catkin_download_test_data.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\test\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/test/gtest.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\test\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/test/nosetests.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\test\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/tools/doxygen.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\tools\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/tools/libraries.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\tools\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/tools/rt.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\tools\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/tools/doxygen.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\tools\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/tools/libraries.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\tools\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/tools/rt.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\tools\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/templates/_setup_util.py.in">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\templates\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/templates/env.sh.in">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\templates\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/templates/setup.bash.in">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\templates\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/templates/setup.sh.in">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\templates\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/templates/setup.zsh.in">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\templates\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/templates/rosinstall.in">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\templates\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/templates/_setup_util.py.in">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\templates\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/templates/env.sh.in">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\templates\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/templates/setup.bash.in">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\templates\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/templates/setup.sh.in">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\templates\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/templates/setup.zsh.in">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\templates\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/templates/rosinstall.in">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\templates\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/templates/generate_cached_setup.py.in">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\templates\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/templates/env.sh.in">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\templates\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/templates/_setup_util.py.in">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\templates\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/templates/env.sh.in">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\templates\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/templates/setup.bash.in">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\templates\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/templates/setup.sh.in">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\templates\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/templates/setup.zsh.in">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\templates\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/templates/rosinstall.in">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\templates\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/templates/_setup_util.py.in">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\templates\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/templates/env.sh.in">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\templates\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/templates/setup.bash.in">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\templates\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/templates/setup.sh.in">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\templates\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/templates/setup.zsh.in">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\templates\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/templates/rosinstall.in">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\templates\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/templates/generate_cached_setup.py.in">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\templates\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/catkin/cmake/templates/env.sh.in">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\catkin\cmake\templates\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/roscpp/cmake/roscppConfig-version.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\roscpp\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/roscpp/cmake/roscppConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\roscpp\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/roscpp/cmake/roscpp-msg-extras.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\roscpp\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/roscpp/cmake/roscppConfig-version.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\roscpp\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/roscpp/cmake/roscppConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\roscpp\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/roscpp/cmake/roscpp-msg-extras.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\roscpp\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/cpp_common/cmake/cpp_commonConfig-version.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\cpp_common\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/cpp_common/cmake/cpp_commonConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\cpp_common\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/cpp_common/cmake/cpp_commonConfig-version.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\cpp_common\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/cpp_common/cmake/cpp_commonConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\cpp_common\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/message_runtime/cmake/message_runtimeConfig-version.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\message_runtime\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/message_runtime/cmake/message_runtimeConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\message_runtime\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/message_runtime/cmake/message_runtimeConfig-version.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\message_runtime\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/message_runtime/cmake/message_runtimeConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\message_runtime\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/roscpp_serialization/cmake/roscpp_serializationConfig-version.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\roscpp_serialization\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/roscpp_serialization/cmake/roscpp_serializationConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\roscpp_serialization\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/roscpp_serialization/cmake/roscpp_serializationConfig-version.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\roscpp_serialization\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/roscpp_serialization/cmake/roscpp_serializationConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\roscpp_serialization\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/roscpp_traits/cmake/roscpp_traitsConfig-version.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\roscpp_traits\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/roscpp_traits/cmake/roscpp_traitsConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\roscpp_traits\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/roscpp_traits/cmake/roscpp_traitsConfig-version.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\roscpp_traits\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/roscpp_traits/cmake/roscpp_traitsConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\roscpp_traits\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/rostime/cmake/rostimeConfig-version.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\rostime\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/rostime/cmake/rostimeConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\rostime\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/rostime/cmake/rostimeConfig-version.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\rostime\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/rostime/cmake/rostimeConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\rostime\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/rosconsole/cmake/rosconsoleConfig-version.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\rosconsole\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/rosconsole/cmake/rosconsoleConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\rosconsole\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/rosconsole/cmake/rosconsole-extras.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\rosconsole\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/rosconsole/cmake/rosconsoleConfig-version.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\rosconsole\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/rosconsole/cmake/rosconsoleConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\rosconsole\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/rosconsole/cmake/rosconsole-extras.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\rosconsole\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/rosgraph_msgs/cmake/rosgraph_msgsConfig-version.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\rosgraph_msgs\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/rosgraph_msgs/cmake/rosgraph_msgsConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\rosgraph_msgs\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/rosgraph_msgs/cmake/rosgraph_msgs-msg-extras.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\rosgraph_msgs\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/rosgraph_msgs/cmake/rosgraph_msgsConfig-version.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\rosgraph_msgs\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/rosgraph_msgs/cmake/rosgraph_msgsConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\rosgraph_msgs\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/rosgraph_msgs/cmake/rosgraph_msgs-msg-extras.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\rosgraph_msgs\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/std_msgs/cmake/std_msgsConfig-version.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\std_msgs\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/std_msgs/cmake/std_msgsConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\std_msgs\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/std_msgs/cmake/std_msgs-msg-extras.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\std_msgs\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/std_msgs/cmake/std_msgsConfig-version.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\std_msgs\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/std_msgs/cmake/std_msgsConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\std_msgs\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/std_msgs/cmake/std_msgs-msg-extras.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\std_msgs\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/xmlrpcpp/cmake/xmlrpcppConfig-version.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\xmlrpcpp\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/xmlrpcpp/cmake/xmlrpcppConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\xmlrpcpp\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/xmlrpcpp/cmake/xmlrpcpp-extras.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\xmlrpcpp\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/xmlrpcpp/cmake/xmlrpcppConfig-version.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\xmlrpcpp\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/xmlrpcpp/cmake/xmlrpcppConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\xmlrpcpp\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/../../../../../opt/ros/kinetic/share/xmlrpcpp/cmake/xmlrpcpp-extras.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\opt\ros\kinetic\share\xmlrpcpp\cmake\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/manyears_ros/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\manyears_ros\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/manyears_ros/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\manyears_ros\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/manyears_ros/src/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\manyears_ros\src\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/manyears_ros/src/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\manyears_ros\src\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/catkin/catkin_generated/version/package.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\catkin\catkin_generated\version\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/catkin/catkin_generated/version/package.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\catkin\catkin_generated\version\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/catkin_generated/installspace/_setup_util.py">
+			<Option virtualFolder="CMake Files\cmake-build-debug\catkin_generated\installspace\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/catkin_generated/installspace/_setup_util.py">
+			<Option virtualFolder="CMake Files\cmake-build-debug\catkin_generated\installspace\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/manyears_ros/catkin_generated/ordered_paths.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\manyears_ros\catkin_generated\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/manyears_ros/catkin_generated/ordered_paths.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\manyears_ros\catkin_generated\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/manyears_ros/catkin_generated/ordered_paths.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\manyears_ros\catkin_generated\"/>
+		</Unit>
+		<Unit filename="/home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/manyears_ros/catkin_generated/ordered_paths.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\manyears_ros\catkin_generated\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

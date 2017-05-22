@@ -1,0 +1,600 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true" buildAllGenerated="true">
+    <generated>
+      <config projectName="manyears_ros" targetName="gtest_main" />
+      <config projectName="manyears_ros" targetName="test-future" />
+      <config projectName="manyears_ros" targetName="tests" />
+      <config projectName="manyears_ros" targetName="ROSBUILD_gensrv_cpp" />
+      <config projectName="manyears_ros" targetName="rosbuild_precompile" />
+      <config projectName="manyears_ros" targetName="manyears_ros" />
+      <config projectName="manyears_ros" targetName="rosbuild_premsgsrvgen" />
+      <config projectName="manyears_ros" targetName="rospack_genmsg_all" />
+      <config projectName="manyears_ros" targetName="test" />
+      <config projectName="manyears_ros" targetName="ROSBUILD_genmsg_py" />
+      <config projectName="manyears_ros" targetName="rospack_genmsg_libexe" />
+      <config projectName="manyears_ros" targetName="ROSBUILD_gensrv_lisp" />
+      <config projectName="manyears_ros" targetName="doxygen" />
+      <config projectName="manyears_ros" targetName="rosbuild_clean-test-results" />
+      <config projectName="manyears_ros" targetName="test-results" />
+      <config projectName="manyears_ros" targetName="ROSBUILD_genmsg_lisp" />
+      <config projectName="manyears_ros" targetName="download_extra_data" />
+      <config projectName="manyears_ros" targetName="run_tests" />
+      <config projectName="manyears_ros" targetName="rospack_genmsg" />
+      <config projectName="manyears_ros" targetName="position_exploitation" />
+      <config projectName="manyears_ros" targetName="rospack_gensrv" />
+      <config projectName="manyears_ros" targetName="manyears_savestream" />
+      <config projectName="manyears_ros" targetName="_catkin_empty_exported_target" />
+      <config projectName="manyears_ros" targetName="clean_test_results" />
+      <config projectName="manyears_ros" targetName="test-results-run" />
+      <config projectName="manyears_ros" targetName="gtest" />
+      <config projectName="manyears_ros" targetName="rt_audio" />
+      <config projectName="manyears_ros" targetName="ROSBUILD_genmsg_cpp" />
+    </generated>
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration GENERATION_DIR="." />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="9b7c0fbe-8dfe-45a7-aef8-5f64ee628a06" name="Default" comment="" />
+    <ignored path="$PROJECT_DIR$/CMakeFiles/" />
+    <ignored path="$PROJECT_DIR$/src/CMakeFiles/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="CMakeLists.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CMakeLists.txt" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/CMakeLists.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="399">
+              <caret line="19" column="49" lean-forward="false" selection-start-line="19" selection-start-column="49" selection-end-line="19" selection-end-column="49" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="build.make" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CMakeFiles/ROSBUILD_genmsg_lisp.dir/build.make">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="203">
+              <caret line="192" column="0" lean-forward="false" selection-start-line="192" selection-start-column="0" selection-end-line="192" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="rt_audio.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/rt_audio.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="83">
+              <caret line="19" column="18" lean-forward="false" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="18" />
+              <folding>
+                <element signature="e#0#20#0" expanded="true" />
+                <element signature="e#149#169#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/CMakeLists.txt" />
+        <option value="$PROJECT_DIR$/src/CMakeLists.txt" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="width" value="1920" />
+    <option name="height" value="1080" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="manyears_ros" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$MyProjectTreeStructure$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="manyears_ros" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="manyears_ros" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="manyears_ros" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$MyProjectTreeStructure$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="manyears_ros" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.Build All">
+    <configuration default="true" type="CLion_Remote" factoryName="GDB Remote Debug" remoteCommand="" symbolFile="" sysroot="">
+      <method />
+    </configuration>
+    <configuration default="true" type="CMakeCatchTestRunConfigurationType" factoryName="Catch Test" PASS_PARENT_ENVS_2="true" TEST_MODE="SUITE_TEST">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" PASS_PARENT_ENVS_2="true" TEST_MODE="SUITE_TEST">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="ChromiumRemoteDebugType" factoryName="Chromium Remote">
+      <method />
+    </configuration>
+    <configuration default="true" type="CompoundRunConfigurationType" factoryName="Compound Run Configuration">
+      <method />
+    </configuration>
+    <configuration default="true" type="FirefoxRemoteDebugType" factoryName="Firefox Remote">
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerJest" factoryName="Jest">
+      <node-interpreter value="project" />
+      <working-dir value="" />
+      <envs />
+      <scope-kind value="ALL" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerProtractor" factoryName="Protractor">
+      <config-file value="" />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="NodeWebKit" factoryName="NW.js">
+      <method />
+    </configuration>
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="manyears_ros" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="ReactNative" factoryName="React Native">
+      <node-interpreter value="project" />
+      <platform value="ANDROID" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="Tox" factoryName="Tox">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="manyears_ros" />
+      <method />
+    </configuration>
+    <configuration default="true" type="XSLT" factoryName="XSLT">
+      <option name="myOutputFile" />
+      <option name="myOpenOutputFile" value="false" />
+      <option name="myOpenInBrowser" value="false" />
+      <option name="mySmartErrorHandling" value="true" />
+      <option name="myRunnerPort" value="34873" />
+      <option name="myVmArguments" />
+      <option name="myWorkingDirectory" />
+      <option name="myModule" />
+      <option name="myJdk" />
+      <parameters />
+      <OutputType value="CONSOLE" save-to-file="false" />
+      <FileType name="XML" />
+      <JdkChoice value="FROM_MODULE" />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.grunt" factoryName="Grunt.js">
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+      <command value="run" />
+      <scripts />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Doctests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="manyears_ros" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Nosetests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="manyears_ros" />
+      <option name="_new_regexPattern" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;.&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Unittests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="manyears_ros" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;.&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="py.test">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="manyears_ros" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;.&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Build All" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Default" EXPLICIT_BUILD_TARGET_NAME="all">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="_catkin_empty_exported_target" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="manyears_ros" TARGET_NAME="_catkin_empty_exported_target" CONFIG_NAME="Default">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="clean_test_results" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="manyears_ros" TARGET_NAME="clean_test_results" CONFIG_NAME="Default">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="download_extra_data" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="manyears_ros" TARGET_NAME="download_extra_data" CONFIG_NAME="Default">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="doxygen" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="manyears_ros" TARGET_NAME="doxygen" CONFIG_NAME="Default">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="rosbuild_clean-test-results" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="manyears_ros" TARGET_NAME="rosbuild_clean-test-results" CONFIG_NAME="Default">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="ROSBUILD_genmsg_cpp" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="manyears_ros" TARGET_NAME="ROSBUILD_genmsg_cpp" CONFIG_NAME="Default">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="ROSBUILD_genmsg_lisp" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="manyears_ros" TARGET_NAME="ROSBUILD_genmsg_lisp" CONFIG_NAME="Default">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="ROSBUILD_genmsg_py" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="manyears_ros" TARGET_NAME="ROSBUILD_genmsg_py" CONFIG_NAME="Default">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="ROSBUILD_gensrv_cpp" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="manyears_ros" TARGET_NAME="ROSBUILD_gensrv_cpp" CONFIG_NAME="Default">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="ROSBUILD_gensrv_lisp" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="manyears_ros" TARGET_NAME="ROSBUILD_gensrv_lisp" CONFIG_NAME="Default">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="rosbuild_precompile" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="manyears_ros" TARGET_NAME="rosbuild_precompile" CONFIG_NAME="Default">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="rosbuild_premsgsrvgen" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="manyears_ros" TARGET_NAME="rosbuild_premsgsrvgen" CONFIG_NAME="Default">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="rospack_genmsg" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="manyears_ros" TARGET_NAME="rospack_genmsg" CONFIG_NAME="Default">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="rospack_genmsg_all" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="manyears_ros" TARGET_NAME="rospack_genmsg_all" CONFIG_NAME="Default">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="rospack_genmsg_libexe" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="manyears_ros" TARGET_NAME="rospack_genmsg_libexe" CONFIG_NAME="Default">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="rospack_gensrv" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="manyears_ros" TARGET_NAME="rospack_gensrv" CONFIG_NAME="Default">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="run_tests" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="manyears_ros" TARGET_NAME="run_tests" CONFIG_NAME="Default">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="test" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="manyears_ros" TARGET_NAME="test" CONFIG_NAME="Default">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="test-future" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="manyears_ros" TARGET_NAME="test-future" CONFIG_NAME="Default">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="test-results" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="manyears_ros" TARGET_NAME="test-results" CONFIG_NAME="Default">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="test-results-run" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="manyears_ros" TARGET_NAME="test-results-run" CONFIG_NAME="Default">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="tests" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="manyears_ros" TARGET_NAME="tests" CONFIG_NAME="Default">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="manyears_ros" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="manyears_ros" TARGET_NAME="manyears_ros" CONFIG_NAME="Default" RUN_TARGET_PROJECT_NAME="manyears_ros" RUN_TARGET_NAME="manyears_ros">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="manyears_savestream" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="manyears_ros" TARGET_NAME="manyears_savestream" CONFIG_NAME="Default" RUN_TARGET_PROJECT_NAME="manyears_ros" RUN_TARGET_NAME="manyears_savestream">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="position_exploitation" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="manyears_ros" TARGET_NAME="position_exploitation" CONFIG_NAME="Default" RUN_TARGET_PROJECT_NAME="manyears_ros" RUN_TARGET_NAME="position_exploitation">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="rt_audio" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="manyears_ros" TARGET_NAME="rt_audio" CONFIG_NAME="Default" RUN_TARGET_PROJECT_NAME="manyears_ros" RUN_TARGET_NAME="rt_audio">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="gtest" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="manyears_ros" TARGET_NAME="gtest" CONFIG_NAME="Default">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="gtest_main" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="manyears_ros" TARGET_NAME="gtest_main" CONFIG_NAME="Default">
+      <envs />
+      <method />
+    </configuration>
+    <list size="29">
+      <item index="0" class="java.lang.String" itemvalue="Application.Build All" />
+      <item index="1" class="java.lang.String" itemvalue="Application._catkin_empty_exported_target" />
+      <item index="2" class="java.lang.String" itemvalue="Application.clean_test_results" />
+      <item index="3" class="java.lang.String" itemvalue="Application.download_extra_data" />
+      <item index="4" class="java.lang.String" itemvalue="Application.doxygen" />
+      <item index="5" class="java.lang.String" itemvalue="Application.rosbuild_clean-test-results" />
+      <item index="6" class="java.lang.String" itemvalue="Application.ROSBUILD_genmsg_cpp" />
+      <item index="7" class="java.lang.String" itemvalue="Application.ROSBUILD_genmsg_lisp" />
+      <item index="8" class="java.lang.String" itemvalue="Application.ROSBUILD_genmsg_py" />
+      <item index="9" class="java.lang.String" itemvalue="Application.ROSBUILD_gensrv_cpp" />
+      <item index="10" class="java.lang.String" itemvalue="Application.ROSBUILD_gensrv_lisp" />
+      <item index="11" class="java.lang.String" itemvalue="Application.rosbuild_precompile" />
+      <item index="12" class="java.lang.String" itemvalue="Application.rosbuild_premsgsrvgen" />
+      <item index="13" class="java.lang.String" itemvalue="Application.rospack_genmsg" />
+      <item index="14" class="java.lang.String" itemvalue="Application.rospack_genmsg_all" />
+      <item index="15" class="java.lang.String" itemvalue="Application.rospack_genmsg_libexe" />
+      <item index="16" class="java.lang.String" itemvalue="Application.rospack_gensrv" />
+      <item index="17" class="java.lang.String" itemvalue="Application.run_tests" />
+      <item index="18" class="java.lang.String" itemvalue="Application.test" />
+      <item index="19" class="java.lang.String" itemvalue="Application.test-future" />
+      <item index="20" class="java.lang.String" itemvalue="Application.test-results" />
+      <item index="21" class="java.lang.String" itemvalue="Application.test-results-run" />
+      <item index="22" class="java.lang.String" itemvalue="Application.tests" />
+      <item index="23" class="java.lang.String" itemvalue="Application.manyears_ros" />
+      <item index="24" class="java.lang.String" itemvalue="Application.manyears_savestream" />
+      <item index="25" class="java.lang.String" itemvalue="Application.position_exploitation" />
+      <item index="26" class="java.lang.String" itemvalue="Application.rt_audio" />
+      <item index="27" class="java.lang.String" itemvalue="Application.gtest" />
+      <item index="28" class="java.lang.String" itemvalue="Application.gtest_main" />
+    </list>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9b7c0fbe-8dfe-45a7-aef8-5f64ee628a06" name="Default" comment="" />
+      <created>1495475685153</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1495475685153</updated>
+      <workItem from="1495475689402" duration="1120000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="1120000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="0" width="1920" height="1080" extended-state="6" />
+    <layout>
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32982087" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32982087" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32982087" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="processedProjectFiles" value="true" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/CMakeFiles/manyears_savestream.dir/build.make">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="156" column="0" lean-forward="false" selection-start-line="156" selection-start-column="0" selection-end-line="156" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeFiles/ROSBUILD_genmsg_lisp.dir/build.make">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="192" column="0" lean-forward="false" selection-start-line="192" selection-start-column="0" selection-end-line="192" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/rt_audio.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="83">
+          <caret line="19" column="18" lean-forward="false" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#20#0" expanded="true" />
+            <element signature="e#149#169#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="19" column="49" lean-forward="false" selection-start-line="19" selection-start-column="49" selection-end-line="19" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

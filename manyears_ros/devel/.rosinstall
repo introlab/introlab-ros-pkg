@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/red1/catkin_ws/src/introlab-ros-pkg/manyears_ros/devel/setup.sh

@@ -1,0 +1,1 @@
+/usr/bin/c++    -Wall -g   CMakeFiles/playsaw.dir/playsaw.cpp.o  -o playsaw -rdynamic ../librtaudio_static.a -lasound -lpthread 
