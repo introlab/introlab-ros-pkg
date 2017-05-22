@@ -1,0 +1,4 @@
+# Hashes of file build rules.
+d71cabb296e1507a356d325c2f70fcaa CMakeFiles/clean_test_results
+41041f887e390d784171c95b96b05490 CMakeFiles/rosbuild_clean-test-results
+d0717e7ced78079a880059f281d85002 CMakeFiles/test-results

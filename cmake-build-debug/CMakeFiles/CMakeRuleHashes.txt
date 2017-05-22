@@ -1,0 +1,2 @@
+# Hashes of file build rules.
+a9582fa9097d3b57662e4fcef47071ad manyears_ros/src/CMakeFiles/clean_test_results

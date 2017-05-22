@@ -1,0 +1,16 @@
+/home/red1/Softwares/clion-2017.1.2/bin/cmake/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/red1/catkin_ws/src/introlab-ros-pkg
+-- Using CATKIN_DEVEL_PREFIX: /home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/devel
+-- Using CMAKE_PREFIX_PATH: /home/red1/catkin_ws/devel;/opt/ros/kinetic
+-- This workspace overlays: /home/red1/catkin_ws/devel;/opt/ros/kinetic
+-- Using PYTHON_EXECUTABLE: /usr/bin/python
+-- Using Debian Python package layout
+-- Using empy: /usr/bin/empy
+-- Using CATKIN_ENABLE_TESTING: ON
+-- Call enable_testing()
+-- Using CATKIN_TEST_RESULTS_DIR: /home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug/test_results
+-- Found gtest sources under '/usr/src/gtest': gtests will be built
+-- Using Python nosetests: /usr/bin/nosetests-2.7
+-- catkin 0.7.6
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/red1/catkin_ws/src/introlab-ros-pkg/cmake-build-debug

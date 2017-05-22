@@ -1,0 +1,1 @@
+/usr/bin/c++  -fPIC -O2 -g -DNDEBUG  -shared -Wl,-soname,libgtest.so -o ../lib/libgtest.so CMakeFiles/gtest.dir/src/gtest-all.cc.o  -L/home/red1/catkin_ws/src/introlab-ros-pkg/irl_external/manyears/gtest/src -lpthread -Wl,-rpath,/home/red1/catkin_ws/src/introlab-ros-pkg/irl_external/manyears/gtest/src 
